@@ -1,8 +1,8 @@
 class Patient {
-    sphere: Number;
-    cylinder: Number;
-    axis: Number;
-    age: Number;
+    sphere: number;
+    cylinder: number;
+    axis: number;
+    age: number;
 }
 
 const newPatient: Patient = new Patient();
