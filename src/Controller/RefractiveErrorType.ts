@@ -105,11 +105,11 @@ class Myopia extends RefractiveErrorType {
         let result: boolean = false;
 
         /**
-         * The minimum DistanceRx can be exactly the same as OR 
+         * The maximum DistanceRx can be exactly the same as OR 
          * great than the current DistanceRx, BUT the current 
-         * DistanceRx has to be less than maximum DistanceRx.
+         * DistanceRx has to be less than minimum DistanceRx.
          */
-        if (currentDistanceRx >= minimumDistanceRx && currentDistanceRx < maximumDistanceRx) {
+        if (currentDistanceRx > minimumDistanceRx && currentDistanceRx <= maximumDistanceRx) {
             result = true;
         }
 
