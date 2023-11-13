@@ -6,81 +6,71 @@ class RefractiveErrorType {
      *  Below is all the boolean statements whether the patient's age is within a certain range. Start with the limitless option first, which is age 60 AND over
      */
 
-    isPatientAge60AndOver(): boolean {
+    isPatientAge60AndOver(currentAge: number): boolean {
 
-        const result: boolean = this.currentPatient.age >= 60;
+        const result: boolean = currentAge >= 60;
         return result;
     }
 
     isPatientAgeBetweenMinimumToMaximum(currentAge: number, minimumAge: number, maximumAge: number): boolean {
         let result: boolean = false;
         
-        if (currentAge >= minimumAge || currentAge <= maximumAge) {
+        if (currentAge >= minimumAge && currentAge <= maximumAge) {
             result = true;
         }
         return result
     }
 
-    isPatientAgeBetween55to59(): boolean {
+    isPatientAgeBetween55to59(currentAge: number): boolean {
         const minimumAge: number = 55;
         const maximumAge: number = 59;
         
-        const currentAge: number = this.currentPatient.age;
-
         let result: boolean = this.isPatientAgeBetweenMinimumToMaximum(currentAge, minimumAge, maximumAge);
         
         return result;
     }
 
-    isPatientAgeBetween50to54(): boolean {
+    isPatientAgeBetween50to54(currentAge: number): boolean {
         
         const minimumAge: number = 50;
         const maximumAge: number = 54;
         
-        const currentAge: number = this.currentPatient.age;
-
         let result: boolean = this.isPatientAgeBetweenMinimumToMaximum(currentAge, minimumAge, maximumAge);
         
         return result;
     }
 
-    isPatientAgeBetween45to49(): boolean {
+    isPatientAgeBetween45to49(currentAge: number): boolean {
         
         const minimumAge: number = 45;
         const maximumAge: number = 49;
         
-        const currentAge: number = this.currentPatient.age;
-
         let result: boolean = this.isPatientAgeBetweenMinimumToMaximum(currentAge, minimumAge, maximumAge);
         
         return result;
     }
 
-    isPatientAgeBetween40to44(): boolean {
+    isPatientAgeBetween40to44(currentAge: number): boolean {
         const minimumAge: number = 40;
         const maximumAge: number = 44;
         
-        const currentAge: number = this.currentPatient.age;
-
         let result: boolean = this.isPatientAgeBetweenMinimumToMaximum(currentAge, minimumAge, maximumAge);
         
         return result;
     }
 
-    isPatientAgeBetween30to39(): boolean {
+    isPatientAgeBetween30to39(currentAge: number): boolean {
 
         const minimumAge: number = 30;
         const maximumAge: number = 39;
         
-        const currentAge: number = this.currentPatient.age;
-
         let result: boolean = this.isPatientAgeBetweenMinimumToMaximum(currentAge, minimumAge, maximumAge);
         
         return result;
     }
 
-    isPatientAgeUnder30(): boolean {
-        return this.currentPatient.age < 30;
+    isPatientAgeUnder30(currentAge: number): boolean {
+        return currentAge < 30;
     }
 
 }
@@ -98,4 +88,81 @@ class Hyperopic extends RefractiveErrorType {
 
 class Myopia extends RefractiveErrorType {
 
+    isDistanceRxOverNegative300(currentDistanceRx: number): boolean {
+        
+        const startingPoint: number = -300
+        
+        return currentDistanceRx <= startingPoint;
+    }
+    
+    isDistanceRxExactlyNegative300(currentDistanceRx: number): boolean {
+        const startingPoint: number = -300
+                
+        return currentDistanceRx === startingPoint;
+    }
+
+    isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx: number, minimumDistanceRx: number, maximumDistanceRx): boolean {
+        let result: boolean = false;
+
+        /**
+         * The minimum DistanceRx can be exactly the same as OR 
+         * great than the current DistanceRx, BUT the current 
+         * DistanceRx has to be less than maximum DistanceRx.
+         */
+        if (currentDistanceRx >= minimumDistanceRx && currentDistanceRx < maximumDistanceRx) {
+            result = true;
+        }
+
+        return result;
+    }
+
+    // TODO
+    isDistanceRxOverNegative250(currentDistanceRx: number): boolean {
+        const minimumRange: number = ;
+        const maximumRange: number = ;
+
+        const result: boolean = this.isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx, minimumRange, maximumRange);
+
+        return result;
+    }
+
+    // TODO
+    isDistanceRxOverNegative200(currentDistanceRx: number): boolean {
+        const minimumRange: number = ;
+        const maximumRange: number = ;
+
+        const result: boolean = this.isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx, minimumRange, maximumRange);
+
+        return result;
+    }
+
+    // TODO
+    isDistanceRxOverNegative150(currentDistanceRx: number): boolean {
+        const minimumRange: number = ;
+        const maximumRange: number = ;
+
+        const result: boolean = this.isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx, minimumRange, maximumRange);
+
+        return result;
+    }
+
+    // TODO
+    isDistanceRxOverNegative100(currentDistanceRx: number): boolean {
+        const minimumRange: number = ;
+        const maximumRange: number = ;
+
+        const result: boolean = this.isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx, minimumRange, maximumRange);
+
+        return result;
+    }
+
+    // TODO
+    isDistanceRxOverNegative050(currentDistanceRx: number): boolean {
+        const minimumRange: number = ;
+        const maximumRange: number = ;
+
+        const result: boolean = this.isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx, minimumRange, maximumRange);
+
+        return result;
+    }
 }

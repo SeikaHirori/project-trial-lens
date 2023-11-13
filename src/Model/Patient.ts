@@ -1,5 +1,5 @@
 class Patient {
-    sphere: number;
+    sphere: number; // This is also known as DistanceRx
     cylinder: number;
     axis: number;
     age: number;
