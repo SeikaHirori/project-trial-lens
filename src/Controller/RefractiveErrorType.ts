@@ -21,10 +21,9 @@ class RefractiveErrorType {
         return result
     }
 
-    // TODO
     isPatientAgeBetween55to59(): boolean {
-        const minimumAge: number = 30;
-        const maximumAge: number = 39;
+        const minimumAge: number = 55;
+        const maximumAge: number = 59;
         
         const currentAge: number = this.currentPatient.age;
 
@@ -33,11 +32,10 @@ class RefractiveErrorType {
         return result;
     }
 
-    // TODO
     isPatientAgeBetween50to54(): boolean {
         
-        const minimumAge: number = 30;
-        const maximumAge: number = 39;
+        const minimumAge: number = 50;
+        const maximumAge: number = 54;
         
         const currentAge: number = this.currentPatient.age;
 
@@ -46,11 +44,10 @@ class RefractiveErrorType {
         return result;
     }
 
-    // TODO
     isPatientAgeBetween45to49(): boolean {
         
-        const minimumAge: number = 30;
-        const maximumAge: number = 39;
+        const minimumAge: number = 45;
+        const maximumAge: number = 49;
         
         const currentAge: number = this.currentPatient.age;
 
@@ -59,10 +56,9 @@ class RefractiveErrorType {
         return result;
     }
 
-    // TODO
     isPatientAgeBetween40to44(): boolean {
-        const minimumAge: number = 30;
-        const maximumAge: number = 39;
+        const minimumAge: number = 40;
+        const maximumAge: number = 44;
         
         const currentAge: number = this.currentPatient.age;
 
