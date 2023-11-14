@@ -91,8 +91,10 @@ class Myopia extends RefractiveErrorType {
     isDistanceRxOverNegative300(currentDistanceRx: number): boolean {
         
         const startingPoint: number = -300
+
+        const result: boolean = currentDistanceRx <= startingPoint;
         
-        return currentDistanceRx <= startingPoint;
+        return result;
     }
     
     isDistanceRxExactlyNegative300(currentDistanceRx: number): boolean {
@@ -116,50 +118,45 @@ class Myopia extends RefractiveErrorType {
         return result;
     }
 
-    // TODO
     isDistanceRxOverNegative250(currentDistanceRx: number): boolean {
-        const minimumRange: number = ;
-        const maximumRange: number = ;
+        const minimumRange: number = -300;
+        const maximumRange: number = -250;
 
         const result: boolean = this.isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx, minimumRange, maximumRange);
 
         return result;
     }
 
-    // TODO
     isDistanceRxOverNegative200(currentDistanceRx: number): boolean {
-        const minimumRange: number = ;
-        const maximumRange: number = ;
+        const minimumRange: number = -250;
+        const maximumRange: number = -200;
 
         const result: boolean = this.isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx, minimumRange, maximumRange);
 
         return result;
     }
 
-    // TODO
     isDistanceRxOverNegative150(currentDistanceRx: number): boolean {
-        const minimumRange: number = ;
-        const maximumRange: number = ;
+        const minimumRange: number = -200;
+        const maximumRange: number = -150;
 
         const result: boolean = this.isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx, minimumRange, maximumRange);
 
         return result;
     }
 
-    // TODO
     isDistanceRxOverNegative100(currentDistanceRx: number): boolean {
-        const minimumRange: number = ;
-        const maximumRange: number = ;
+        const minimumRange: number = -150;
+        const maximumRange: number = -100;
 
         const result: boolean = this.isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx, minimumRange, maximumRange);
 
         return result;
     }
 
-    // TODO
     isDistanceRxOverNegative050(currentDistanceRx: number): boolean {
-        const minimumRange: number = ;
-        const maximumRange: number = ;
+        const minimumRange: number = -100;
+        const maximumRange: number = -50;
 
         const result: boolean = this.isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx, minimumRange, maximumRange);
 
