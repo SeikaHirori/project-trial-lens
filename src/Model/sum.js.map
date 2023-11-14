@@ -1,1 +1,1 @@
-{"version":3,"file":"sum.js","sourceRoot":"","sources":["sum.ts"],"names":[],"mappings":";;;AAAA,SAAgB,GAAG,CAAC,CAAC,EAAC,CAAC;IACnB,OAAO,CAAC,GAAC,CAAC,CAAC;AACf,CAAC;AAFD,kBAEC"}
+{"version":3,"file":"sum.js","sourceRoot":"","sources":["sum.ts"],"names":[],"mappings":";;;AAAA,SAAgB,GAAG,CAAC,CAAQ,EAAE,CAAQ;IAClC,OAAO,CAAC,GAAC,CAAC,CAAC;AACf,CAAC;AAFD,kBAEC"}

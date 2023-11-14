@@ -1,20 +1,16 @@
-var Patient = /** @class */ (function () {
-    function Patient() {
+"use strict";
+class Patient {
+    constructor(sphere, cylinder, axis, age) {
+        this._sphere = sphere;
+        this._cylinder = cylinder;
+        this._axis = axis;
+        this._age = age;
     }
-    Object.defineProperty(Patient.prototype, "sphereRaw", {
-        get: function () {
-            return this._sphere;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Patient.prototype, "sphereFormatted", {
-        get: function () {
-            return this._sphere / 100;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return Patient;
-}());
+    get sphereRaw() {
+        return this._sphere;
+    }
+    get sphereFormatted() {
+        return this._sphere / 100;
+    }
+}
 //# sourceMappingURL=Patient.js.map

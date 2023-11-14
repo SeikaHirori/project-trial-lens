@@ -2,8 +2,10 @@ class RefractiveErrorType {
 
     currentPatient: Patient;
 
+    constructor(patient: Patient) {
+        this.currentPatient = patient;
+    }
 
-    
     /**
      *  Below is all the boolean statements whether the patient's age is within a certain range. Start with the limitless option first, which is age 60 AND over
      */
@@ -107,7 +109,7 @@ class Myopia extends RefractiveErrorType {
         return currentDistanceRx === startingPoint;
     }
 
-    isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx: number, minimumDistanceRx: number, maximumDistanceRx): boolean {
+    isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx: number, minimumDistanceRx: number, maximumDistanceRx: number): boolean {
         let result: boolean = false;
 
         /**

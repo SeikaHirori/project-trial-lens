@@ -1,10 +1,12 @@
-var TrialLens = /** @class */ (function () {
-    function TrialLens(patient) {
-        this.currentPatient = patient;
-    }
-    TrialLens.prototype.determineRefractiveErrorType = function (patient) {
-        var patientSphere = patient.sphereRaw;
-    };
-    return TrialLens;
-}());
+"use strict";
+// class TrialLens {
+//     currentPatient: Patient;
+//     refractiveErrorType: RefractiveErrorType;
+//     constructor(patient: Patient) {
+//         this.currentPatient = patient;
+//     }
+//     determineRefractiveErrorType(patient: Patient): RefractiveErrorType {
+//         const patientSphere: number = patient.sphereRaw;
+//     }
+// }
 //# sourceMappingURL=TrialLens.js.map

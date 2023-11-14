@@ -1,1 +1,1 @@
-{"version":3,"file":"TrialLens.js","sourceRoot":"","sources":["TrialLens.ts"],"names":[],"mappings":"AAAA;IAII,mBAAY,OAAgB;QACxB,IAAI,CAAC,cAAc,GAAG,OAAO,CAAC;IAClC,CAAC;IAED,gDAA4B,GAA5B,UAA6B,OAAgB;QACzC,IAAM,aAAa,GAAW,OAAO,CAAC,SAAS,CAAC;IACpD,CAAC;IACL,gBAAC;AAAD,CAAC,AAXD,IAWC"}
+{"version":3,"file":"TrialLens.js","sourceRoot":"","sources":["TrialLens.ts"],"names":[],"mappings":";AAAA,oBAAoB;AACpB,+BAA+B;AAC/B,gDAAgD;AAEhD,sCAAsC;AACtC,yCAAyC;AACzC,QAAQ;AAER,4EAA4E;AAC5E,2DAA2D;AAC3D,QAAQ;AACR,IAAI"}
