@@ -1,0 +1,19 @@
+{
+  "name": "project-trial-lens",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeikaHirori/project-trial-lens.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeikaHirori/project-trial-lens/issues"
+  },
+  "homepage": "https://github.com/SeikaHirori/project-trial-lens#readme"
+}

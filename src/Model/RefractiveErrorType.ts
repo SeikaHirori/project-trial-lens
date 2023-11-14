@@ -2,6 +2,8 @@ class RefractiveErrorType {
 
     currentPatient: Patient;
 
+
+    
     /**
      *  Below is all the boolean statements whether the patient's age is within a certain range. Start with the limitless option first, which is age 60 AND over
      */
@@ -87,6 +89,8 @@ class Hyperopic extends RefractiveErrorType {
 
 
 class Myopia extends RefractiveErrorType {
+
+
 
     isDistanceRxOverNegative300(currentDistanceRx: number): boolean {
         

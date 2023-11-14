@@ -1,9 +1,14 @@
 class Patient {
-    sphere: number; // This is also known as DistanceRx
-    cylinder: number;
-    axis: number;
-    age: number;
-}
+    _sphere: number; // This is also known as DistanceRx
+    _cylinder: number;
+    _axis: number;
+    _age: number;
 
-const newPatient: Patient = new Patient();
-console.log(newPatient.sphere)
+    get sphereRaw() {
+        return this._sphere
+    }
+
+    get sphereFormatted() {
+        return this._sphere / 100;
+    }
+}
