@@ -53,3 +53,4 @@ test('Patient with negative sphere/ Distance Rx and high cylinder', () => {
     expect(currentPatient.age).toBe(testAge);
 });
 
+// TODO: Patient with sphere "0.00"

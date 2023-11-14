@@ -1,4 +1,6 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Myopia = exports.Hyperopic = exports.Emmetropic = exports.RefractiveErrorType = void 0;
 class RefractiveErrorType {
     constructor(patient) {
         this.currentPatient = patient;
@@ -51,10 +53,13 @@ class RefractiveErrorType {
         return currentAge < 30;
     }
 }
+exports.RefractiveErrorType = RefractiveErrorType;
 class Emmetropic extends RefractiveErrorType {
 }
+exports.Emmetropic = Emmetropic;
 class Hyperopic extends RefractiveErrorType {
 }
+exports.Hyperopic = Hyperopic;
 class Myopia extends RefractiveErrorType {
     isDistanceRxOverNegative300(currentDistanceRx) {
         const startingPoint = -300;
@@ -108,4 +113,5 @@ class Myopia extends RefractiveErrorType {
         return result;
     }
 }
+exports.Myopia = Myopia;
 //# sourceMappingURL=RefractiveErrorType.js.map

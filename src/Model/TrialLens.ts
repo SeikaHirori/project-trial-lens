@@ -1,12 +1,17 @@
-// class TrialLens {
-//     currentPatient: Patient;
-//     refractiveErrorType: RefractiveErrorType;
+import { Patient } from "./Patient";
+import { RefractiveErrorType, Emmetropic, Hyperopic, Myopia } from "./RefractiveErrorType";
 
-//     constructor(patient: Patient) {
-//         this.currentPatient = patient;
-//     }
+class TrialLens {
+    #currentPatient: Patient;
+    #refractiveErrorType: RefractiveErrorType;
 
-//     determineRefractiveErrorType(patient: Patient): RefractiveErrorType {
-//         const patientSphere: number = patient.sphereRaw;
-//     }
-// }
+    constructor(patient: Patient) {
+        this.#currentPatient = patient;
+        this.#refractiveErrorType = new Myopia(this.#currentPatient); // FIXME ; This is placeholder... Use function "determineRefractiveErrorType() when it is written out."
+    }
+
+    // // TODO
+    // determineRefractiveErrorType(patient: Patient): RefractiveErrorType {
+    //     const patientSphere: number = patient.sphereRaw;
+    // }
+}

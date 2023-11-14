@@ -1,4 +1,6 @@
-class RefractiveErrorType {
+import { Patient } from "./Patient";
+
+export class RefractiveErrorType {
 
     currentPatient: Patient;
 
@@ -80,17 +82,17 @@ class RefractiveErrorType {
 }
 
 
-class Emmetropic extends RefractiveErrorType {
+export class Emmetropic extends RefractiveErrorType {
 
 }
 
 
-class Hyperopic extends RefractiveErrorType {
+export class Hyperopic extends RefractiveErrorType {
 
 }
 
 
-class Myopia extends RefractiveErrorType {
+export class Myopia extends RefractiveErrorType {
 
 
 
