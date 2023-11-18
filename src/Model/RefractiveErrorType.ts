@@ -2,10 +2,11 @@ import { Patient } from "./Patient";
 
 export class RefractiveErrorType {
 
-    currentPatient: Patient;
+    #currentPatient: Patient;
+    readonly #nameType: string = "Unknown Refractive ErrorType";
 
     constructor(patient: Patient) {
-        this.currentPatient = patient;
+        this.#currentPatient = patient;
     }
 
     /**
