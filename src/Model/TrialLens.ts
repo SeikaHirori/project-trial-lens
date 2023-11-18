@@ -7,15 +7,16 @@ class TrialLens {
 
     constructor(patient: Patient) {
         this.#currentPatient = patient;
-        this.#refractiveErrorType = this.#determineRefractiveErrorType(patient); // FIXME ; This is placeholder... Use function "determineRefractiveErrorType() when it is written out."
+        // this.#refractiveErrorType = this.#determineRefractiveErrorType(patient); // FIXME ; This is placeholder... Use function "determineRefractiveErrorType() when it is written out."
     }
 
-    // TODO
-    #determineRefractiveErrorType(patient: Patient): RefractiveErrorType {
-        const patientSphere: number = patient.sphereRaw;
+    // // TODO
+    // #determineRefractiveErrorType(patient: Patient): RefractiveErrorType {
+    //     const patientSphere: number = patient.sphereRaw;
 
-        if (patientSphere < 0) {
-            return 
-        }
-    }
+    //     if (patientSphere < 0) {
+    //         return 
+    //     }
+    // }
 }
+

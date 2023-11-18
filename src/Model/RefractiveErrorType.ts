@@ -1,9 +1,9 @@
 import { Patient } from "./Patient";
 
-export class RefractiveErrorType {
+export abstract class RefractiveErrorType {
 
     #currentPatient: Patient;
-    readonly #nameType: string = "Unknown Refractive ErrorType";
+    abstract readonly nameType: string;
 
     constructor(patient: Patient) {
         this.#currentPatient = patient;
@@ -82,20 +82,31 @@ export class RefractiveErrorType {
 
 }
 
+export class debugConcreteRefractiveErrorType extends RefractiveErrorType {
+    nameType: string = "Debug/ Concrete: RefractiveErrorType";
 
-export class Emmetropic extends RefractiveErrorType {
+    
 
 }
 
 
+export class Emmetropic extends RefractiveErrorType {
+    nameType: string = "Emmtropic";
+    
+    // constructor(patient:Patient) {
+    //     super(patient);
+    // }
+}
+
+
 export class Hyperopic extends RefractiveErrorType {
+    nameType: string = "Hyperopic";
 
 }
 
 
 export class Myopia extends RefractiveErrorType {
-
-
+    nameType: string = "Myopia";
 
     isDistanceRxOverNegative300(currentDistanceRx: number): boolean {
         
@@ -172,3 +183,4 @@ export class Myopia extends RefractiveErrorType {
         return result;
     }
 }
+
