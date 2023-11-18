@@ -58,7 +58,11 @@ class RefractiveErrorType {
         return result;
     }
     isPatientAgeUnder30(currentAge) {
-        return currentAge < 30;
+        let result = false;
+        if (currentAge >= 0 && currentAge < 30) {
+            result = true;
+        }
+        return result;
     }
 }
 exports.RefractiveErrorType = RefractiveErrorType;

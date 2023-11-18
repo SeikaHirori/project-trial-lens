@@ -77,15 +77,23 @@ export abstract class RefractiveErrorType {
     }
 
     isPatientAgeUnder30(currentAge: number): boolean {
-        return currentAge < 30;
+        let result: boolean = false;
+        
+        if ( currentAge >= 0 && currentAge < 30) {
+            result = true;
+        }
+
+        return result;
     }
+
+    // TODO: add function that checks if the age is below 0
 
 }
 
 export class debugConcreteRefractiveErrorType extends RefractiveErrorType {
     nameType: string = "Debug/ Concrete: RefractiveErrorType";
 
-    
+
 
 }
 
