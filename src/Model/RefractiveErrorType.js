@@ -5,13 +5,12 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
-var _RefractiveErrorType_currentPatient, _RefractiveErrorType_nameType;
+var _RefractiveErrorType_currentPatient;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Myopia = exports.Hyperopic = exports.Emmetropic = exports.RefractiveErrorType = void 0;
+exports.Myopia = exports.Hyperopic = exports.Emmetropic = exports.debugConcreteRefractiveErrorType = exports.RefractiveErrorType = void 0;
 class RefractiveErrorType {
     constructor(patient) {
         _RefractiveErrorType_currentPatient.set(this, void 0);
-        _RefractiveErrorType_nameType.set(this, "Unknown Refractive ErrorType");
         __classPrivateFieldSet(this, _RefractiveErrorType_currentPatient, patient, "f");
     }
     /**
@@ -63,14 +62,36 @@ class RefractiveErrorType {
     }
 }
 exports.RefractiveErrorType = RefractiveErrorType;
-_RefractiveErrorType_currentPatient = new WeakMap(), _RefractiveErrorType_nameType = new WeakMap();
+_RefractiveErrorType_currentPatient = new WeakMap();
+class debugConcreteRefractiveErrorType extends RefractiveErrorType {
+    constructor() {
+        super(...arguments);
+        this.nameType = "Debug/ Concrete: RefractiveErrorType";
+    }
+}
+exports.debugConcreteRefractiveErrorType = debugConcreteRefractiveErrorType;
 class Emmetropic extends RefractiveErrorType {
+    constructor() {
+        super(...arguments);
+        this.nameType = "Emmtropic";
+        // constructor(patient:Patient) {
+        //     super(patient);
+        // }
+    }
 }
 exports.Emmetropic = Emmetropic;
 class Hyperopic extends RefractiveErrorType {
+    constructor() {
+        super(...arguments);
+        this.nameType = "Hyperopic";
+    }
 }
 exports.Hyperopic = Hyperopic;
 class Myopia extends RefractiveErrorType {
+    constructor() {
+        super(...arguments);
+        this.nameType = "Myopia";
+    }
     isDistanceRxOverNegative300(currentDistanceRx) {
         const startingPoint = -300;
         const result = currentDistanceRx <= startingPoint;

@@ -1,14 +1,19 @@
 import { expect, test } from 'vitest';
-import { RefractiveErrorType, Emmetropic, Hyperopic, Myopia } from './RefractiveErrorType';
-import { Patient } from './Patient';
+import  { RefractiveErrorType, debugConcreteRefractiveErrorType, Emmetropic, Hyperopic, Myopia }  from './RefractiveErrorType.ts';
+import { Patient } from './Patient.ts';
 
 
 test('sample test', () => {
     expect(1).toBe(1);
 });
 
-test('Checking object "RefractiveErrorType"', () => {
+test('Checking abstract "RefractiveErrorType" through the concrete class "baseRefractiveErrorType"', () => {
     const currentPatient: Patient = new Patient(+3.00, 0.25, 18, 25);
     
-    const baseRefractiveErrorType: RefractiveErrorType = new RefractiveErrorType(currentPatient);
+    const concreteRefractiveErrorType = new debugConcreteRefractiveErrorType(currentPatient);
+
+    expect(concreteRefractiveErrorType.nameType).toBe("Debug/ Concrete: RefractiveErrorType");
+
+    
+
 });

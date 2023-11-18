@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { Patient } from './Patient';
+import { Patient } from './Patient.ts';
 
 test('Patient with positive sphere and low cylinder', () => {
     const currentPatient: Patient = new Patient(+300, +25, 10, 29);
