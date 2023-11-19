@@ -14,6 +14,7 @@ var _Patient_sphere, _Patient_cylinder, _Patient_axis, _Patient_age;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Patient = void 0;
 class Patient {
+    // #valueAfterFactoringInAstigmatism: number; // TODO
     constructor(sphere, cylinder, axis, age) {
         _Patient_sphere.set(this, void 0); // This is also known as DistanceRx
         _Patient_cylinder.set(this, void 0);
@@ -23,6 +24,7 @@ class Patient {
         __classPrivateFieldSet(this, _Patient_cylinder, cylinder, "f");
         __classPrivateFieldSet(this, _Patient_axis, axis, "f");
         __classPrivateFieldSet(this, _Patient_age, age, "f");
+        // this.#valueAfterFactoringInAstigmatism = this.#calculateTotalAfterAstigmatism(); // TODO
     }
     get sphereRaw() {
         return __classPrivateFieldGet(this, _Patient_sphere, "f");
