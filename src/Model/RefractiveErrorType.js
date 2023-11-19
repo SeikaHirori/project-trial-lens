@@ -1,9 +1,17 @@
 "use strict";
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
+var _RefractiveErrorType_currentPatient;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Myopia = exports.Hyperopic = exports.Emmetropic = exports.RefractiveErrorType = void 0;
+exports.Myopia = exports.Hyperopic = exports.Emmetropic = exports.debugConcreteRefractiveErrorType = exports.RefractiveErrorType = void 0;
 class RefractiveErrorType {
     constructor(patient) {
-        this.currentPatient = patient;
+        _RefractiveErrorType_currentPatient.set(this, void 0);
+        __classPrivateFieldSet(this, _RefractiveErrorType_currentPatient, patient, "f");
     }
     /**
      *  Below is all the boolean statements whether the patient's age is within a certain range. Start with the limitless option first, which is age 60 AND over
@@ -50,17 +58,56 @@ class RefractiveErrorType {
         return result;
     }
     isPatientAgeUnder30(currentAge) {
-        return currentAge < 30;
+        let result = false;
+        if (currentAge >= 0 && currentAge < 30) {
+            result = true;
+        }
+        return result;
     }
 }
 exports.RefractiveErrorType = RefractiveErrorType;
+_RefractiveErrorType_currentPatient = new WeakMap();
+class debugConcreteRefractiveErrorType extends RefractiveErrorType {
+    constructor() {
+        super(...arguments);
+        this.nameType = "Debug/ Concrete: RefractiveErrorType";
+    }
+    calculateTrialLens() {
+        throw new Error("Method not implemented.");
+    }
+}
+exports.debugConcreteRefractiveErrorType = debugConcreteRefractiveErrorType;
 class Emmetropic extends RefractiveErrorType {
+    constructor() {
+        super(...arguments);
+        this.nameType = "Emmtropic";
+        // constructor(patient:Patient) {
+        //     super(patient);
+        // }
+    }
+    calculateTrialLens() {
+        throw new Error("Method not implemented.");
+    }
 }
 exports.Emmetropic = Emmetropic;
 class Hyperopic extends RefractiveErrorType {
+    constructor() {
+        super(...arguments);
+        this.nameType = "Hyperopic";
+    }
+    calculateTrialLens() {
+        throw new Error("Method not implemented.");
+    }
 }
 exports.Hyperopic = Hyperopic;
 class Myopia extends RefractiveErrorType {
+    constructor() {
+        super(...arguments);
+        this.nameType = "Myopia";
+    }
+    calculateTrialLens() {
+        throw new Error("Method not implemented.");
+    }
     isDistanceRxOverNegative300(currentDistanceRx) {
         const startingPoint = -300;
         const result = currentDistanceRx <= startingPoint;
