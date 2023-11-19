@@ -11,13 +11,48 @@ import { Patient } from "../Model/Patient";
  * When webpage loads, automatically create a new Patient with randomly generated values.
  */
 
-// export class NewRandomPatient {
-//     #sphere: number;
-//     #cylinder: number;
-//     #axis: number;
-//     #age: number;
+export class NewRandomPatient {
 
-//     main() {
+    exportNewRandomPatient(): Patient {
+        const newSphere: number = this.generateSphere();
+        const newCylinder: number = this.generateCylinder();
+        const newAxis: number = this.generateAxis();
+        const newAge: number = this.generateAge();
 
-//     }
-// }
+        throw new Error("Method not implemented.");
+    }
+
+    // TODO
+    generateSphere(): number {
+        
+        throw new Error("Method not implemented.");
+    }
+
+    // TODO
+    generateCylinder(): number {
+        
+        throw new Error("Method not implemented.");
+    }
+
+    // TODO
+    generateAxis(): number {
+        
+        throw new Error("Method not implemented.");
+    }
+
+    // TODO
+    generateAge(): number {
+        
+        throw new Error("Method not implemented.");
+    }
+
+    verifyValueIsDivisibleBy4(value: number): boolean {
+        let result: boolean = false;
+
+        if (value % 25 === 0) {
+            result = true;
+        }
+
+        return result;
+    }
+}
