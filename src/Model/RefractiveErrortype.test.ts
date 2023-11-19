@@ -10,7 +10,7 @@ test('sample test', () => {
 test('Checking abstract "RefractiveErrorType" through the concrete class "baseRefractiveErrorType"', () => {
     const currentPatient: Patient = new Patient(+3.00, 0.25, 18, 25);
     
-    const concreteRefractiveErrorType = new debugConcreteRefractiveErrorType(currentPatient);
+    const concreteRefractiveErrorType: debugConcreteRefractiveErrorType = new debugConcreteRefractiveErrorType(currentPatient);
 
     expect(concreteRefractiveErrorType.nameType).toBe("Debug/ Concrete: RefractiveErrorType");
 
@@ -66,3 +66,4 @@ test('Checking abstract "RefractiveErrorType" through the concrete class "baseRe
     expect(concreteRefractiveErrorType.isPatientAgeUnder30(-10)).toBe(false);
     expect(concreteRefractiveErrorType.isPatientAgeUnder30(-1)).toBe(false);
 });
+
