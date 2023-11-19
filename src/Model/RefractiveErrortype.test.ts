@@ -85,8 +85,8 @@ describe('Unit testing abstract "RefractiveErrorType" through the concrete class
 
     // TODO: Ages is below 0, which is invalid
     test( "Should be invalid if age is under 0", () => {
-    expect(concreteRefractiveErrorType.isPatientAgeUnder30(-10)).toBe(false);
-    expect(concreteRefractiveErrorType.isPatientAgeUnder30(-1)).toBe(false);
+        expect(concreteRefractiveErrorType.isPatientAgeUnder30(-10)).toBe(false);
+        expect(concreteRefractiveErrorType.isPatientAgeUnder30(-1)).toBe(false);
     });
 });
 
