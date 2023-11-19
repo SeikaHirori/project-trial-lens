@@ -61,6 +61,6 @@ export class Patient {
     //     // Full Spherocylindrical
 
     //     throw new Error("unable to cacluate total after Astigmatism");
-    }
+    // }
 
 }
