@@ -72,6 +72,9 @@ class debugConcreteRefractiveErrorType extends RefractiveErrorType {
         super(...arguments);
         this.nameType = "Debug/ Concrete: RefractiveErrorType";
     }
+    calculateTrialLens() {
+        throw new Error("Method not implemented.");
+    }
 }
 exports.debugConcreteRefractiveErrorType = debugConcreteRefractiveErrorType;
 class Emmetropic extends RefractiveErrorType {
@@ -82,6 +85,9 @@ class Emmetropic extends RefractiveErrorType {
         //     super(patient);
         // }
     }
+    calculateTrialLens() {
+        throw new Error("Method not implemented.");
+    }
 }
 exports.Emmetropic = Emmetropic;
 class Hyperopic extends RefractiveErrorType {
@@ -89,12 +95,18 @@ class Hyperopic extends RefractiveErrorType {
         super(...arguments);
         this.nameType = "Hyperopic";
     }
+    calculateTrialLens() {
+        throw new Error("Method not implemented.");
+    }
 }
 exports.Hyperopic = Hyperopic;
 class Myopia extends RefractiveErrorType {
     constructor() {
         super(...arguments);
         this.nameType = "Myopia";
+    }
+    calculateTrialLens() {
+        throw new Error("Method not implemented.");
     }
     isDistanceRxOverNegative300(currentDistanceRx) {
         const startingPoint = -300;

@@ -2,12 +2,18 @@ import { Patient } from "./Patient";
 
 export abstract class RefractiveErrorType {
 
-    #currentPatient: Patient;
     abstract readonly nameType: string;
+    #currentPatient: Patient;
 
     constructor(patient: Patient) {
         this.#currentPatient = patient;
     }
+
+    /**
+     * 
+     */
+
+    abstract calculateTrialLens(): string
 
     /**
      *  Below is all the boolean statements whether the patient's age is within a certain range. Start with the limitless option first, which is age 60 AND over
@@ -86,20 +92,21 @@ export abstract class RefractiveErrorType {
         return result;
     }
 
-    // TODO: add function that checks if the age is below 0
-    
-
 }
 
 export class debugConcreteRefractiveErrorType extends RefractiveErrorType {
+    calculateTrialLens(): string {
+        throw new Error("Method not implemented.");
+    }
     nameType: string = "Debug/ Concrete: RefractiveErrorType";
-
-
 
 }
 
 
 export class Emmetropic extends RefractiveErrorType {
+    calculateTrialLens(): string {
+        throw new Error("Method not implemented.");
+    }
     nameType: string = "Emmtropic";
     
     // constructor(patient:Patient) {
@@ -109,12 +116,18 @@ export class Emmetropic extends RefractiveErrorType {
 
 
 export class Hyperopic extends RefractiveErrorType {
+    calculateTrialLens(): string {
+        throw new Error("Method not implemented.");
+    }
     nameType: string = "Hyperopic";
 
 }
 
 
 export class Myopia extends RefractiveErrorType {
+    calculateTrialLens(): string {
+        throw new Error("Method not implemented.");
+    }
     nameType: string = "Myopia";
 
     isDistanceRxOverNegative300(currentDistanceRx: number): boolean {
