@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import  { RefractiveErrorType, debugConcreteRefractiveErrorType, Emmetropic, Hyperopic, Myopia }  from './RefractiveErrorType.ts';
+import  { RefractiveErrorType, debugConcreteRefractiveErrorType,  Hyperopic, Emmetropic, Myopia }  from './RefractiveErrorType.ts';
 import { Patient } from './Patient.ts';
 
 
@@ -7,7 +7,7 @@ test('sample test', () => {
     expect(1).toBe(1);
 });
 
-test('Checking abstract "RefractiveErrorType" through the concrete class "baseRefractiveErrorType"', () => {
+test('Unit testing abstract "RefractiveErrorType" through the concrete class "baseRefractiveErrorType"', () => {
     const currentPatient: Patient = new Patient(+3.00, 0.25, 18, 25);
     
     const concreteRefractiveErrorType: debugConcreteRefractiveErrorType = new debugConcreteRefractiveErrorType(currentPatient);
@@ -67,3 +67,26 @@ test('Checking abstract "RefractiveErrorType" through the concrete class "baseRe
     expect(concreteRefractiveErrorType.isPatientAgeUnder30(-1)).toBe(false);
 });
 
+test('Testing Hyperopic, which was inherited from abstract class "RefractiveErrorType"', () => {
+    const currentPatient: Patient = new Patient(+3.00, 0.25, 18, 25); 
+
+    const currentHyperopic: Hyperopic = new Hyperopic(currentPatient);
+
+    const result1: boolean = (currentHyperopic instanceof RefractiveErrorType);
+    expect(result1).toBe(true);
+    console.log(`Is inherited class "Hyperopic is subclass of abstract class "RefractiveErrorType": ${result1}`);
+
+
+});
+
+test('Testing Emmetropic, which was inherited from abstract class "RefractiveErrorType"', () => {
+    const currentPatient: Patient = new Patient(0.00, 0.25, 18, 25);
+
+    const currentEmmetropic: Emmetropic = new Emmetropic(currentPatient);
+});
+
+test('Testing Myopia, which was inherited from abstract class "RefractiveErrorType"', () => {
+    const currentPatient: Patient = new Patient(-2.00, 0.25, 18, 25);
+
+    const currentMyopia: Myopia = new Myopia(currentPatient);
+});

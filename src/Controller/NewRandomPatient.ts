@@ -11,13 +11,13 @@ import { Patient } from "../Model/Patient";
  * When webpage loads, automatically create a new Patient with randomly generated values.
  */
 
-export class NewRandomPatient {
-    #sphere: number;
-    #cylinder: number;
-    #axis: number;
-    #age: number;
+// export class NewRandomPatient {
+//     #sphere: number;
+//     #cylinder: number;
+//     #axis: number;
+//     #age: number;
 
-    main() {
+//     main() {
 
-    }
-}
+//     }
+// }
