@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { Patient } from './Patient.ts';
 
-describe('test methods of model "Patient"', () => {
+describe('test functions of model "Patient"', () => {
     const currentPatient: Patient = new Patient(+250, 25, 10, 20);
 
     test('Observe the method "calculateTotalAfterAstigmatism(): When cylinder is below 0.50, ignore the cylinder and use ONLY the sphere."', () => {
@@ -63,7 +63,7 @@ describe('Patient with positive sphere and low cylinder', () => {
     
 });
 
-test('Patient with negative sphere/ Distance Rx and high cylinder', () => {
+describe('Patient with negative sphere/ Distance Rx and high cylinder', () => {
     const currentPatient: Patient = new Patient(-200, +200, 180, 56);
 
     const testSphereRaw: number = -200
@@ -75,16 +75,18 @@ test('Patient with negative sphere/ Distance Rx and high cylinder', () => {
     const testAxis: number = 180;
 
     const testAge: number = 56;
+    test('Testing getters', () => {
+        expect(currentPatient.sphereRaw).toBe(testSphereRaw);
+        expect(currentPatient.sphereFormatted).toBe(testSphereFormatted);
     
-    expect(currentPatient.sphereRaw).toBe(testSphereRaw);
-    expect(currentPatient.sphereFormatted).toBe(testSphereFormatted);
-
-    expect(currentPatient.cylinderRaw).toBe(testCylinderRaw);
-    expect(currentPatient.cylinderFormatted).toBe(testCylinderFormatted);
-
-    expect(currentPatient.axis).toBe(testAxis);
-
-    expect(currentPatient.age).toBe(testAge);
+        expect(currentPatient.cylinderRaw).toBe(testCylinderRaw);
+        expect(currentPatient.cylinderFormatted).toBe(testCylinderFormatted);
+    
+        expect(currentPatient.axis).toBe(testAxis);
+    
+        expect(currentPatient.age).toBe(testAge);
+    
+    });
 });
 
 // TODO: Patient with sphere "0.00"
