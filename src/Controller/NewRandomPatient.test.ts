@@ -17,6 +17,8 @@ describe('Unit testing methods from controller class "NewRandomPatient"', () => 
 
         const result4: boolean = testNewRandomPatient.verifyValueIsDivisibleBy4(100);
         assert.isTrue(result4);
+
+        
     });
 
     test('Verify that values that are NOT divisible by 25 should have a remaider', () => {
