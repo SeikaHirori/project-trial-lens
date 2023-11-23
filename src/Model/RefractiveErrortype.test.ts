@@ -8,6 +8,10 @@ describe( "sample describe",() => {
     });
 });
 
+
+/**
+ * This is concrete class of RefractiveErrorType
+ */
 describe('Unit testing abstract "RefractiveErrorType" through the concrete class "baseRefractiveErrorType"', () => {
     const currentPatient: Patient = new Patient(+3.00, 0.25, 18, 25);
     
@@ -89,6 +93,7 @@ describe('Unit testing abstract "RefractiveErrorType" through the concrete class
         expect(concreteRefractiveErrorType.isPatientAgeUnder30(-1)).toBe(false);
     });
 });
+
 
 describe('Testing Hyperopic, which was inherited from abstract class "RefractiveErrorType"', () => {
     const currentPatient: Patient = new Patient(+3.00, 0.25, 18, 25); 
