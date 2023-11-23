@@ -4,7 +4,7 @@ export class Patient {
     #axis: number;
     #age: number;
 
-    #valueAfterFactoringInAstigmatism: number; // TODO
+    #valueAfterFactoringAstigmatism: number; // TODO
 
     constructor(sphere: number, cylinder: number, axis: number, age: number) {
         this.#sphere = sphere;
@@ -12,7 +12,7 @@ export class Patient {
         this.#axis = axis;
         this.#age = age;
 
-        this.#valueAfterFactoringInAstigmatism = this.calculateTotalAfterAstigmatism(sphere, cylinder); // TODO
+        this.#valueAfterFactoringAstigmatism = this.calculateTotalAfterAstigmatism(sphere, cylinder); // TODO
     }
 
 
@@ -45,12 +45,12 @@ export class Patient {
      */
     // TODO: Reenable later
     get valueAfterCalculatingAstigmatismRaw(): number {
-        return this.#valueAfterFactoringInAstigmatism;
+        return this.#valueAfterFactoringAstigmatism;
     }
 
     // TODO: Reenable later
     get valueAfterCalculatingAstigmatismFormatted(): number {
-        return this.#valueAfterFactoringInAstigmatism / 100;
+        return this.#valueAfterFactoringAstigmatism / 100;
     }
 
     // TODO: Write unit tests

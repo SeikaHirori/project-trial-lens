@@ -13,6 +13,11 @@ describe('test functions of model "Patient"', () => {
 
     });
 
+    test('see if getter works for variable "valueAfterFactoringAstigmatism"', () => {
+        expect(currentPatient.valueAfterCalculatingAstigmatismRaw).toBe(250);
+        expect(currentPatient.valueAfterCalculatingAstigmatismFormatted).toBe(2.50);
+    });
+
     test('Observe the method "calculateTotalAfterAstigmatism(): When cylinder is between 0.50 to 1.50, Spherical Equivalent is used.', () => {
         const expectedOutcome: number = +150;
 
@@ -30,6 +35,7 @@ describe('test functions of model "Patient"', () => {
     });
 
 });
+
 
 describe('Patient with positive sphere and low cylinder', () => {
     const currentPatient: Patient = new Patient(+300, +25, 10, 29);
