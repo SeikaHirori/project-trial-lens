@@ -13,7 +13,9 @@ export abstract class RefractiveErrorType {
      * 
      */
 
-    abstract calculateTrialLens(): number | null;
+    abstract getResults(): string; // Return the trial lens values OR handle the null for the respective RET
+
+    abstract calculateTrialLens(patient: Patient): number | null;
 
     /**
      *  Below is all the boolean statements whether the patient's age is within a certain range. Start with the limitless option first, which is age 60 AND over
@@ -95,6 +97,9 @@ export abstract class RefractiveErrorType {
 }
 
 export class debugConcreteRefractiveErrorType extends RefractiveErrorType {
+    getResults(): string {
+        throw new Error("Method not implemented.");
+    }
     calculateTrialLens(): number | null {
         throw new Error("Method not implemented.");
     }
@@ -104,10 +109,19 @@ export class debugConcreteRefractiveErrorType extends RefractiveErrorType {
 
 
 export class Emmetropic extends RefractiveErrorType {
-    calculateTrialLens(): number | null {
+    getResults(): string {
+        // TODO: Create instance variable for Patient here, and pass onto method "this.calculateTrialLens"
+        const patient: Patient = this.currentPatient;
+
+        const trailLens: number | null = this.calculateTrialLens(patient)
+        
+        throw new Error("Method not implemented.");
+    }
+    
+    calculateTrialLens(patient: Patient): number | null {
         let results: number | null;
         
-        const patientAge: number = this.currentPatient.age;
+        const patientAge: number = patient.age;
         // const rawDistanceRx: number = this.currentPatient.valueAfterCalculatingAstigmatismRaw;
         
         // Go through the age check,
@@ -144,11 +158,18 @@ export class Emmetropic extends RefractiveErrorType {
 
 
 export class Hyperopic extends RefractiveErrorType {
-    calculateTrialLens(): number | null {
+    getResults(): string {
+        // TODO: Create instance variable for Patient here, and pass onto method "this.calculateTrialLens"
+        const patient: Patient = this.currentPatient;
+
+        const trailLens: number | null = this.calculateTrialLens(patient)
+        throw new Error("Method not implemented.");
+    }
+    calculateTrialLens(patient: Patient): number | null {
         let results: number | null;
         
-        const patientAge: number = this.currentPatient.age;
-        const rawDistanceRx: number = this.currentPatient.valueAfterCalculatingAstigmatismRaw;
+        const patientAge: number = patient.age;
+        const rawDistanceRx: number = patient.valueAfterCalculatingAstigmatismRaw;
         
         // Go through the age check,
         // and then add the respective
@@ -178,16 +199,24 @@ export class Hyperopic extends RefractiveErrorType {
 
 
 export class Myopia extends RefractiveErrorType {
+    getResults(): string {
+
+        // TODO: Create instance variable for Patient here, and pass onto method "this.calculateTrialLens"
+        const patient: Patient = this.currentPatient;
+
+        const trailLens: number | null = this.calculateTrialLens(patient)
+        throw new Error("Method not implemented.");
+    }
     nameType: string = "Myopia";
 
-    calculateTrialLens(): number | null {
+    calculateTrialLens(patient: Patient): number | null {
         // Use the age of patient first, 
         // THEN use the patient's 
         // DistanceRx
         let trialLens: number | null;
 
-        const patientAge: number = this.currentPatient.age;
-        const rawDistanceRx: number = this.currentPatient.valueAfterCalculatingAstigmatismRaw;
+        const patientAge: number = patient.age;
+        const rawDistanceRx: number = patient.valueAfterCalculatingAstigmatismRaw;
 
 
         // Start with lowest DistanceRx first
@@ -292,18 +321,18 @@ export class Myopia extends RefractiveErrorType {
     // Based on the patient's age, use 
     // their DistanceRx to determine their 
     // trial lens
-    distanceRxIsOverNegative300(age: number): number | null {
-        let results: number | null;
+    distanceRxIsOverNegative300(distanceRx: number): number | null {
+        let results: number;
 
-
+        results = distanceRx + 325;
 
         return results;
     }
 
     distanceRxIsExactlyNegative300(age: number): number | null {
-        let results: number | null;
+        let results: null;
 
-        
+        results = null;
 
         return results;
     }
