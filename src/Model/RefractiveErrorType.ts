@@ -114,18 +114,21 @@ export class Emmetropic extends RefractiveErrorType {
         // and then get the proper
         // trial lens
         if (this.isPatientAge60AndOver(patientAge)){
-            results = rawDistanceRx + 325;
+            results = 325;
         } else if (this.isPatientAgeBetween55to59(patientAge)) {
-            results = rawDistanceRx + 300;
+            results = 300;
         } else if (this.isPatientAgeBetween50to54(patientAge)) {
-            results = rawDistanceRx + 250;
+            results = 250;
         } else if (this.isPatientAgeBetween45to49(patientAge)) {
-            results = rawDistanceRx + 200;
+            results = 200;
         } else if (this.isPatientAgeBetween40to44(patientAge)) {
-            results = rawDistanceRx + 150;
+            results = 150;
         } else if (this.isPatientAgeBetween30to39(patientAge)) {
-            results = rawDistanceRx + 100;
+            results = 100;
         } else {
+            // No correction needed
+            // for patients under age 30
+            // with Emmetropic RET
             results = null;
         }
 
