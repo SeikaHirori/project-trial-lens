@@ -190,8 +190,22 @@ export class Myopia extends RefractiveErrorType {
         const rawDistanceRx: number = this.currentPatient.valueAfterCalculatingAstigmatismRaw;
 
 
-        // Start with oldest age first
-        if 
+        // Start with lowest DistanceRx first
+        if (this.isDistanceRxOverNegative300(rawDistanceRx)) {
+            trialLens = this.distanceRxIsOverNegative300(patientAge);
+        } else if (this.isDistanceRxOverNegative300(rawDistanceRx)) {
+            trialLens = this.distanceRxIsExactlyNegative300(patientAge);
+        } else if (this.isDistanceRxOverNegative250(rawDistanceRx)) {
+            trialLens = this.distanceRxIsBetweenExactlyNegative250ToBelowNegative300(patientAge);
+        } else if (this.isDistanceRxOverNegative200(rawDistanceRx)) {
+            trialLens = this.distanceRxIsBetweenExactlyNegative200ToBelowNegative250(patientAge);
+        } else if (this.isDistanceRxOverNegative150(rawDistanceRx)) {
+            trialLens = this.distanceRxIsBetweenExactlyNegative150ToBelowNegative200(patientAge);
+        } else if (this.isDistanceRxOverNegative100(rawDistanceRx)) {
+            trialLens = this.distanceRxIsBetweenExactlyNegative100ToBelowNegative150(patientAge);
+        } else if (this.isDistanceRxOverNegative050(rawDistanceRx)) {
+            trialLens = this.distanceRxIsBetweenExactlyNegative050ToBelowNegative100(patientAge);
+        }
 
         throw new Error("Method not implemented.");
 
@@ -278,7 +292,7 @@ export class Myopia extends RefractiveErrorType {
     // Based on the patient's age, use 
     // their DistanceRx to determine their 
     // trial lens
-    distanceRxIsOverNegative300(): number | null {
+    distanceRxIsOverNegative300(age: number): number | null {
         let results: number | null;
 
 
@@ -286,15 +300,7 @@ export class Myopia extends RefractiveErrorType {
         return results;
     }
 
-    distanceRxIsExactlyNegative300(): number | null {
-        let results: number | null;
-
-        
-
-        return results;
-    }
-
-    distanceRxIsBetweenExactlyNegative250ToBelowNegative300(): number | null {
+    distanceRxIsExactlyNegative300(age: number): number | null {
         let results: number | null;
 
         
@@ -302,7 +308,7 @@ export class Myopia extends RefractiveErrorType {
         return results;
     }
 
-    distanceRxIsBetweenExactlyNegative200ToBelowNegative250(): number | null {
+    distanceRxIsBetweenExactlyNegative250ToBelowNegative300(age: number): number | null {
         let results: number | null;
 
         
@@ -310,7 +316,7 @@ export class Myopia extends RefractiveErrorType {
         return results;
     }
 
-    distanceRxIsBetweenExactlyNegative150ToBelowNegative200(): number | null {
+    distanceRxIsBetweenExactlyNegative200ToBelowNegative250(age: number): number | null {
         let results: number | null;
 
         
@@ -318,7 +324,7 @@ export class Myopia extends RefractiveErrorType {
         return results;
     }
 
-    distanceRxIsBetweenExactlyNegative100ToBelowNegative150(): number | null {
+    distanceRxIsBetweenExactlyNegative150ToBelowNegative200(age: number): number | null {
         let results: number | null;
 
         
@@ -326,7 +332,15 @@ export class Myopia extends RefractiveErrorType {
         return results;
     }
 
-    distanceRxIsBetweenExactlyNegative50ToBelowNegative100(): number | null {
+    distanceRxIsBetweenExactlyNegative100ToBelowNegative150(age: number): number | null {
+        let results: number | null;
+
+        
+
+        return results;
+    }
+
+    distanceRxIsBetweenExactlyNegative050ToBelowNegative100(age: number): number | null {
         let results: number | null;
 
         
