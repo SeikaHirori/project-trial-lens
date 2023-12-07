@@ -119,7 +119,7 @@ export class Emmetropic extends RefractiveErrorType {
     }
     
     calculateTrialLens(patient: Patient): number | null {
-        let results: number | null;
+        let trialLens: number | null;
         
         const patientAge: number = patient.age;
         // const rawDistanceRx: number = this.currentPatient.valueAfterCalculatingAstigmatismRaw;
@@ -128,26 +128,26 @@ export class Emmetropic extends RefractiveErrorType {
         // and then get the proper
         // trial lens
         if (this.isPatientAge60AndOver(patientAge)){
-            results = 325;
+            trialLens = 325;
         } else if (this.isPatientAgeBetween55to59(patientAge)) {
-            results = 300;
+            trialLens = 300;
         } else if (this.isPatientAgeBetween50to54(patientAge)) {
-            results = 250;
+            trialLens = 250;
         } else if (this.isPatientAgeBetween45to49(patientAge)) {
-            results = 200;
+            trialLens = 200;
         } else if (this.isPatientAgeBetween40to44(patientAge)) {
-            results = 150;
+            trialLens = 150;
         } else if (this.isPatientAgeBetween30to39(patientAge)) {
-            results = 100;
+            trialLens = 100;
         } else {
             // No correction needed
             // for patients under age 30
             // with Emmetropic RET
-            results = null;
+            trialLens = null;
         }
 
         // return trial lens
-        return results;
+        return trialLens;
     }
     nameType: string = "Emmtropic";
     
@@ -166,7 +166,7 @@ export class Hyperopic extends RefractiveErrorType {
         throw new Error("Method not implemented.");
     }
     calculateTrialLens(patient: Patient): number | null {
-        let results: number | null;
+        let trialLens: number | null;
         
         const patientAge: number = patient.age;
         const rawDistanceRx: number = patient.valueAfterCalculatingAstigmatismRaw;
@@ -176,23 +176,24 @@ export class Hyperopic extends RefractiveErrorType {
         // value to the rawDistanceRx to 
         // get the trial lens
         if (this.isPatientAge60AndOver(patientAge)){
-            results = rawDistanceRx + 325;
+            trialLens = rawDistanceRx + 325;
         } else if (this.isPatientAgeBetween55to59(patientAge)) {
-            results = rawDistanceRx + 300;
+            trialLens = rawDistanceRx + 300;
         } else if (this.isPatientAgeBetween50to54(patientAge)) {
-            results = rawDistanceRx + 250;
+            trialLens = rawDistanceRx + 250;
         } else if (this.isPatientAgeBetween45to49(patientAge)) {
-            results = rawDistanceRx + 200;
+            trialLens = rawDistanceRx + 200;
         } else if (this.isPatientAgeBetween40to44(patientAge)) {
-            results = rawDistanceRx + 150;
+            trialLens = rawDistanceRx + 150;
         } else if (this.isPatientAgeBetween30to39(patientAge)) {
-            results = rawDistanceRx + 100;
+            trialLens = rawDistanceRx + 100;
         } else {
             // DistanceRx only
-            results = rawDistanceRx;
+            trialLens = rawDistanceRx;
         }
 
-        return results;    }
+        return trialLens;    
+    }
     nameType: string = "Hyperopic";
 
 }
@@ -358,7 +359,16 @@ export class Myopia extends RefractiveErrorType {
     distanceRxIsBetweenExactlyNegative200ToBelowNegative250(age: number): number | null {
         let results: number | null;
 
-        
+        if (this.isPatientAge60AndOver(age)) {
+            results = +125;
+        } else if (this.isPatientAgeBetween55to59(age)) {
+            results = +100;
+        } else if (this.isPatientAgeBetween50to54(age)) {
+            results = +50;
+        } else {
+            // No trial lens needed
+            results = null;
+        }
 
         return results;
     }
@@ -366,7 +376,18 @@ export class Myopia extends RefractiveErrorType {
     distanceRxIsBetweenExactlyNegative150ToBelowNegative200(age: number): number | null {
         let results: number | null;
 
-        
+        if (this.isPatientAge60AndOver(age)) {
+            results = +175;
+        } else if (this.isPatientAgeBetween55to59(age)) {
+            results = +150;
+        } else if (this.isPatientAgeBetween50to54(age)) {
+            results = +100;
+        } else if (this.isPatientAgeBetween45to49(age)) {
+            results = +50;
+        } else {
+            // No trial lens needed
+            results = null;
+        }
 
         return results;
     }
@@ -374,7 +395,20 @@ export class Myopia extends RefractiveErrorType {
     distanceRxIsBetweenExactlyNegative100ToBelowNegative150(age: number): number | null {
         let results: number | null;
 
-        
+        if (this.isPatientAge60AndOver(age)) {
+            results = +225;
+        } else if (this.isPatientAgeBetween55to59(age)) {
+            results = +200;
+        } else if (this.isPatientAgeBetween50to54(age)) {
+            results = +150;
+        } else if (this.isPatientAgeBetween45to49(age)) {
+            results = +100;
+        } else if (this.isPatientAgeBetween40to44(age)){
+            results = +50;
+        } else {
+            // No trial lens needed
+            results = null;
+        }
 
         return results;
     }
@@ -382,7 +416,22 @@ export class Myopia extends RefractiveErrorType {
     distanceRxIsBetweenExactlyNegative050ToBelowNegative100(age: number): number | null {
         let results: number | null;
 
-        
+        if (this.isPatientAge60AndOver(age)) {
+            results = +275;
+        } else if (this.isPatientAgeBetween55to59(age)) {
+            results = +250;
+        } else if (this.isPatientAgeBetween50to54(age)) {
+            results = +200;
+        } else if (this.isPatientAgeBetween45to49(age)) {
+            results = +150;
+        } else if (this.isPatientAgeBetween40to44(age)){
+            results = +100;
+        } else if (this.isPatientAgeBetween30to39(age)){
+            results = +50;
+        } else {
+            // No trial lens needed
+            results = null;
+        }
 
         return results;
     }
