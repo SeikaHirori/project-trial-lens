@@ -132,6 +132,7 @@ export class Emmetropic extends RefractiveErrorType {
             results = null;
         }
 
+        // return trial lens
         return results;
     }
     nameType: string = "Emmtropic";
@@ -177,11 +178,21 @@ export class Hyperopic extends RefractiveErrorType {
 
 
 export class Myopia extends RefractiveErrorType {
-    calculateTrialLens(): number | null {
-        throw new Error("Method not implemented.");
-    }
     nameType: string = "Myopia";
 
+    calculateTrialLens(): number | null {
+        // Use the age of patient first, 
+        // THEN use the patient's 
+        // distanceRx
+
+
+        // Start with oldest age first
+        
+        throw new Error("Method not implemented.");
+    }
+
+
+    // Boolean for Patient's DistanceRx
     isDistanceRxOverNegative300(currentDistanceRx: number): boolean {
         
         const startingPoint: number = -300
@@ -255,6 +266,65 @@ export class Myopia extends RefractiveErrorType {
         const result: boolean = this.isDistanceRxBetweenMinimumToMaximumRange(currentDistanceRx, minimumRange, maximumRange);
 
         return result;
+    }
+
+    // Based on the patient's age, use 
+    // their DistanceRx to determine their 
+    // trial lens
+    patientAgeIsUnder30(): number | null {
+        let results: number | null;
+
+
+
+        return results;
+    }
+
+    patientAgeIsBetween(): number | null {
+        let results: number | null;
+
+        
+
+        return results;
+    }
+
+    patientAgeIsBetween(): number | null {
+        let results: number | null;
+
+        
+
+        return results;
+    }
+
+    patientAgeIsBetween(): number | null {
+        let results: number | null;
+
+        
+
+        return results;
+    }
+
+    patientAgeIsBetween(): number | null {
+        let results: number | null;
+
+        
+
+        return results;
+    }
+
+    patientAgeIsBetween(): number | null {
+        let results: number | null;
+
+        
+
+        return results;
+    }
+
+    patientAgeIs60AndOver(): number | null {
+        let results: number | null;
+
+        
+
+        return results;
     }
 }
 
