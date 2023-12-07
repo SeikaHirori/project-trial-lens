@@ -183,12 +183,19 @@ export class Myopia extends RefractiveErrorType {
     calculateTrialLens(): number | null {
         // Use the age of patient first, 
         // THEN use the patient's 
-        // distanceRx
+        // DistanceRx
+        let trialLens: number | null;
+
+        const patientAge: number = this.currentPatient.age;
+        const rawDistanceRx: number = this.currentPatient.valueAfterCalculatingAstigmatismRaw;
 
 
         // Start with oldest age first
-        
+        if 
+
         throw new Error("Method not implemented.");
+
+        return trialLens;
     }
 
 
