@@ -278,7 +278,7 @@ export class Myopia extends RefractiveErrorType {
     // Based on the patient's age, use 
     // their DistanceRx to determine their 
     // trial lens
-    patientAgeIsUnder30(): number | null {
+    distanceRxIsOverNegative300(): number | null {
         let results: number | null;
 
 
@@ -286,15 +286,7 @@ export class Myopia extends RefractiveErrorType {
         return results;
     }
 
-    patientAgeIsBetween(): number | null {
-        let results: number | null;
-
-        
-
-        return results;
-    }
-
-    patientAgeIsBetween(): number | null {
+    distanceRxIsExactlyNegative300(): number | null {
         let results: number | null;
 
         
@@ -302,7 +294,7 @@ export class Myopia extends RefractiveErrorType {
         return results;
     }
 
-    patientAgeIsBetween(): number | null {
+    distanceRxIsBetweenExactlyNegative250ToBelowNegative300(): number | null {
         let results: number | null;
 
         
@@ -310,7 +302,7 @@ export class Myopia extends RefractiveErrorType {
         return results;
     }
 
-    patientAgeIsBetween(): number | null {
+    distanceRxIsBetweenExactlyNegative200ToBelowNegative250(): number | null {
         let results: number | null;
 
         
@@ -318,7 +310,7 @@ export class Myopia extends RefractiveErrorType {
         return results;
     }
 
-    patientAgeIsBetween(): number | null {
+    distanceRxIsBetweenExactlyNegative150ToBelowNegative200(): number | null {
         let results: number | null;
 
         
@@ -326,7 +318,15 @@ export class Myopia extends RefractiveErrorType {
         return results;
     }
 
-    patientAgeIs60AndOver(): number | null {
+    distanceRxIsBetweenExactlyNegative100ToBelowNegative150(): number | null {
+        let results: number | null;
+
+        
+
+        return results;
+    }
+
+    distanceRxIsBetweenExactlyNegative50ToBelowNegative100(): number | null {
         let results: number | null;
 
         
