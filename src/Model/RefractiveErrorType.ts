@@ -3,17 +3,17 @@ import { Patient } from "./Patient";
 export abstract class RefractiveErrorType {
 
     abstract readonly nameType: string;
-    #currentPatient: Patient;
+    currentPatient: Patient;
 
     constructor(patient: Patient) {
-        this.#currentPatient = patient;
+        this.currentPatient = patient;
     }
 
     /**
      * 
      */
 
-    abstract calculateTrialLens(): string
+    abstract calculateTrialLens(): number | null;
 
     /**
      *  Below is all the boolean statements whether the patient's age is within a certain range. Start with the limitless option first, which is age 60 AND over
@@ -95,7 +95,7 @@ export abstract class RefractiveErrorType {
 }
 
 export class debugConcreteRefractiveErrorType extends RefractiveErrorType {
-    calculateTrialLens(): string {
+    calculateTrialLens(): number | null {
         throw new Error("Method not implemented.");
     }
     nameType: string = "Debug/ Concrete: RefractiveErrorType";
@@ -104,28 +104,76 @@ export class debugConcreteRefractiveErrorType extends RefractiveErrorType {
 
 
 export class Emmetropic extends RefractiveErrorType {
-    calculateTrialLens(): string {
-        throw new Error("Method not implemented.");
+    calculateTrialLens(): number | null {
+        let results: number | null;
+        
+        const patientAge: number = this.currentPatient.age;
+        // const rawDistanceRx: number = this.currentPatient.valueAfterCalculatingAstigmatismRaw;
+        
+        // Go through the age check,
+        // and then get the proper
+        // trial lens
+        if (this.isPatientAge60AndOver(patientAge)){
+            results = rawDistanceRx + 325;
+        } else if (this.isPatientAgeBetween55to59(patientAge)) {
+            results = rawDistanceRx + 300;
+        } else if (this.isPatientAgeBetween50to54(patientAge)) {
+            results = rawDistanceRx + 250;
+        } else if (this.isPatientAgeBetween45to49(patientAge)) {
+            results = rawDistanceRx + 200;
+        } else if (this.isPatientAgeBetween40to44(patientAge)) {
+            results = rawDistanceRx + 150;
+        } else if (this.isPatientAgeBetween30to39(patientAge)) {
+            results = rawDistanceRx + 100;
+        } else {
+            results = null;
+        }
+
+        return results;
     }
     nameType: string = "Emmtropic";
     
-    // constructor(patient:Patient) {
-    //     super(patient);
-    // }
+    constructor(patient:Patient) {
+        super(patient);
+    }
 }
 
 
 export class Hyperopic extends RefractiveErrorType {
-    calculateTrialLens(): string {
-        throw new Error("Method not implemented.");
-    }
+    calculateTrialLens(): number | null {
+        let results: number | null;
+        
+        const patientAge: number = this.currentPatient.age;
+        const rawDistanceRx: number = this.currentPatient.valueAfterCalculatingAstigmatismRaw;
+        
+        // Go through the age check,
+        // and then add the respective
+        // value to the rawDistanceRx to 
+        // get the trial lens
+        if (this.isPatientAge60AndOver(patientAge)){
+            results = rawDistanceRx + 325;
+        } else if (this.isPatientAgeBetween55to59(patientAge)) {
+            results = rawDistanceRx + 300;
+        } else if (this.isPatientAgeBetween50to54(patientAge)) {
+            results = rawDistanceRx + 250;
+        } else if (this.isPatientAgeBetween45to49(patientAge)) {
+            results = rawDistanceRx + 200;
+        } else if (this.isPatientAgeBetween40to44(patientAge)) {
+            results = rawDistanceRx + 150;
+        } else if (this.isPatientAgeBetween30to39(patientAge)) {
+            results = rawDistanceRx + 100;
+        } else {
+            results = null;
+        }
+
+        return results;    }
     nameType: string = "Hyperopic";
 
 }
 
 
 export class Myopia extends RefractiveErrorType {
-    calculateTrialLens(): string {
+    calculateTrialLens(): number | null {
         throw new Error("Method not implemented.");
     }
     nameType: string = "Myopia";

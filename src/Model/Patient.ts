@@ -12,7 +12,7 @@ export class Patient {
         this.#axis = axis;
         this.#age = age;
 
-        this.#valueAfterFactoringAstigmatism = this.calculateTotalAfterAstigmatism(sphere, cylinder); // TODO
+        this.#valueAfterFactoringAstigmatism = this.calculateTotalAfterAstigmatism(sphere, cylinder); // TODO: Might remove this instance variable later.
     }
 
 
