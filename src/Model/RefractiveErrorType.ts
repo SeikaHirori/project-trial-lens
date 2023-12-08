@@ -18,7 +18,11 @@ export abstract class RefractiveErrorType {
     abstract calculateTrialLens(patient: Patient): number | null;
 
     /**
-     *  Below is all the boolean statements whether the patient's age is within a certain range. Start with the limitless option first, which is age 60 AND over
+     * Below is all the boolean
+     * statements whether the patient's
+     * age is within a certain range.
+     * Start with the limitless option
+     * first, which is age 60 AND over
      */
 
     isPatientAge60AndOver(currentAge: number): boolean {
@@ -326,9 +330,10 @@ export class Myopia extends RefractiveErrorType {
         return result;
     }
 
-    /** Based on the patient's age, use 
-     their DistanceRx to determine their 
-     trial lens
+    /** 
+     * Based on the patient's age, use 
+     * their DistanceRx to determine 
+     * their trial lens
     */
 
     distanceRxIsOverNegative300(distanceRx: number): number | null {
