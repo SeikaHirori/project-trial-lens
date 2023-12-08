@@ -94,6 +94,8 @@ export abstract class RefractiveErrorType {
         return result;
     }
 
+
+
 }
 
 export class debugConcreteRefractiveErrorType extends RefractiveErrorType {
@@ -139,11 +141,13 @@ export class Emmetropic extends RefractiveErrorType {
             trialLens = 150;
         } else if (this.isPatientAgeBetween30to39(patientAge)) {
             trialLens = 100;
-        } else {
+        } else if (this.isPatientAgeUnder30(patientAge)){
             // No correction needed
             // for patients under age 30
             // with Emmetropic RET
             trialLens = null;
+        } else {
+            throw new Error(`ERROR: The age was not valid for Emmetropic. The value was ${patientAge}`)
         }
 
         // return trial lens
@@ -187,9 +191,11 @@ export class Hyperopic extends RefractiveErrorType {
             trialLens = rawDistanceRx + 150;
         } else if (this.isPatientAgeBetween30to39(patientAge)) {
             trialLens = rawDistanceRx + 100;
-        } else {
+        } else if (this.isPatientAgeUnder30(patientAge)) {
             // DistanceRx only
             trialLens = rawDistanceRx;
+        } else {
+            throw new Error(`ERROR: The Age of the patient was not valid for Hyperopic. The age was ${patientAge}`);
         }
 
         return trialLens;    
@@ -235,9 +241,10 @@ export class Myopia extends RefractiveErrorType {
             trialLens = this.distanceRxIsBetweenExactlyNegative100ToBelowNegative150(patientAge);
         } else if (this.isDistanceRxOverNegative050(rawDistanceRx)) {
             trialLens = this.distanceRxIsBetweenExactlyNegative050ToBelowNegative100(patientAge);
+        } else {
+            throw new Error(`ERROR: The Distance Rx is not valid for Myopia. The Distance Rx value was: ${rawDistanceRx}`);
         }
 
-        throw new Error("Method not implemented.");
 
         return trialLens;
     }
@@ -319,9 +326,11 @@ export class Myopia extends RefractiveErrorType {
         return result;
     }
 
-    // Based on the patient's age, use 
-    // their DistanceRx to determine their 
-    // trial lens
+    /** Based on the patient's age, use 
+     their DistanceRx to determine their 
+     trial lens
+    */
+
     distanceRxIsOverNegative300(distanceRx: number): number | null {
         let results: number;
 
@@ -335,7 +344,7 @@ export class Myopia extends RefractiveErrorType {
     distanceRxIsExactlyNegative300(age: number): number | null {
         let results: null;
 
-        // No trial lens needed
+        // No trial lens needed for ALL ages
         results = null;
 
         return results;
@@ -349,7 +358,7 @@ export class Myopia extends RefractiveErrorType {
         } else if (this.isPatientAgeBetween55to59(age)) {
             results = +50;
         } else {
-            // No trial lens needed
+            // No trial lens needed for ages 54 AND lower
             results = null;
         }
 
@@ -366,7 +375,7 @@ export class Myopia extends RefractiveErrorType {
         } else if (this.isPatientAgeBetween50to54(age)) {
             results = +50;
         } else {
-            // No trial lens needed
+            // No trial lens needed for ages 49 AND lower
             results = null;
         }
 
@@ -385,7 +394,7 @@ export class Myopia extends RefractiveErrorType {
         } else if (this.isPatientAgeBetween45to49(age)) {
             results = +50;
         } else {
-            // No trial lens needed
+            // No trial lens needed for ages 44 AND lower
             results = null;
         }
 
@@ -406,7 +415,7 @@ export class Myopia extends RefractiveErrorType {
         } else if (this.isPatientAgeBetween40to44(age)){
             results = +50;
         } else {
-            // No trial lens needed
+            // No trial lens needed for ages 39 and lower
             results = null;
         }
 
@@ -429,7 +438,7 @@ export class Myopia extends RefractiveErrorType {
         } else if (this.isPatientAgeBetween30to39(age)){
             results = +50;
         } else {
-            // No trial lens needed
+            // No trial lens needed for ages below 30
             results = null;
         }
 
