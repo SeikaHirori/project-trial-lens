@@ -1,1 +1,3 @@
 /.vitest/*
+.vscode/*
+node_modules/*
