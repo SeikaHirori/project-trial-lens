@@ -1,5 +1,5 @@
-import { Patient } from "./Patient";
-import { RefractiveErrorType, debugConcreteRefractiveErrorType, Emmetropic, Hyperopic, Myopia } from "./RefractiveErrorType";
+import { Patient } from "./Patient/Patient";
+import { RefractiveErrorType, debugConcreteRefractiveErrorType, Emmetropic, Hyperopic, Myopia } from "./RET/RefractiveErrorType";
 
 class TrialLens {
     #currentPatient: Patient;

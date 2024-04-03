@@ -1,4 +1,4 @@
-import { Patient } from "./Patient";
+import { Patient } from "../Patient/Patient";
 
 export abstract class RefractiveErrorType {
 

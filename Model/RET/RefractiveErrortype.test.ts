@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import  { RefractiveErrorType, debugConcreteRefractiveErrorType,  Hyperopic, Emmetropic, Myopia }  from './RefractiveErrorType.ts';
-import { Patient } from './Patient.ts';
+import { Patient } from '../Patient/Patient.ts';
 
 describe( "sample describe",() => {
     test('sample test', () => {
