@@ -1,29 +1,28 @@
 import { Patient } from "./Patient/Patient";
-import { RefractiveErrorType } from "./RET/RefractiveErrorTypeAbstract";
+import { RefractiveErrorTypeAbstract } from "./RET/RefractiveErrorTypeAbstract";
 import { Myopia } from "./RET/Myopia";
 import { Hyperopic } from "./RET/Hyperopic";
 import { Emmetropic } from "./RET/Emmetropic";
 import { debugConcreteRefractiveErrorType } from "./RET/ConcreteRefractiveErrorType";
 
 class TrialLens {
-    #currentPatient: Patient;
-    #refractiveErrorType: RefractiveErrorType;
+    currentPatient: Patient;
+
 
     constructor(patient: Patient) {
-        this.#currentPatient = patient;
-        this.#refractiveErrorType = this.determineRefractiveErrorType(patient); // FIXME ; This is placeholder... Use function "determineRefractiveErrorType() when it is written out."
+        this.currentPatient = patient;
     }
 
     // // TODO
-    determineRefractiveErrorType(patient: Patient): RefractiveErrorType {
+    determineRefractiveErrorType(patient: Patient): RefractiveErrorTypeAbstract {
         const patientSphere: number = patient.sphereRaw;
 
         if (patientSphere < 0) {
-            return new Myopia(this.#currentPatient);
+            return new Myopia();
         } else if (patientSphere === 0) {
-            return new Emmetropic(this.#currentPatient);
+            return new Emmetropic();
         } else if (patientSphere > 0) {
-            return new Hyperopic(this.#currentPatient);
+            return new Hyperopic();
         }
 
         throw new Error("Unable to determine Refractive Error Type")

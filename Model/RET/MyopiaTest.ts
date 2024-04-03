@@ -6,7 +6,7 @@ import { Patient } from '../Patient/Patient.ts';
 describe('Testing Myopia, which was inherited from abstract class "RefractiveErrorType"', () => {
     const currentPatient: Patient = new Patient(-2, 0.25, 18, 25);
 
-    const currentMyopia: Myopia = new Myopia(currentPatient);
+    const currentMyopia: Myopia = new Myopia();
 
     test(`Inherited class "Myopia" should be subclass of abstract class "RefractiveErrorType"`, () => {
         const result1: boolean = (currentMyopia instanceof RefractiveErrorTypeAbstract);

@@ -1,17 +1,18 @@
+import { Patient } from "../Patient/Patient";
 import { RefractiveErrorTypeAbstract } from "./RefractiveErrorTypeAbstract";
 
 
 export class Myopia extends RefractiveErrorTypeAbstract {
     nameType: string = "Myopia";
 
-    calculateTrialLens(): number | null {
+    calculateTrialLens(patient: Patient): number | null {
         // Use the age of patient first, 
         // THEN use the patient's 
         // DistanceRx
         let trialLens: number | null;
 
-        const patientAge: number = this.currentPatient.age;
-        const rawDistanceRx: number = this.currentPatient.valueAfterCalculatingAstigmatismRaw;
+        const patientAge: number = patient.age;
+        const rawDistanceRx: number = patient.valueAfterCalculatingAstigmatismRaw;
 
 
         // Start with oldest age first
@@ -111,7 +112,7 @@ export class Myopia extends RefractiveErrorTypeAbstract {
     patientAgeIsBetween(): number | null {
         let results: number | null;
 
-
+        
 
         return results;
     }

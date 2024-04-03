@@ -3,11 +3,11 @@ import { RefractiveErrorTypeAbstract } from "./RefractiveErrorTypeAbstract";
 
 
 export class Emmetropic extends RefractiveErrorTypeAbstract {
-    calculateTrialLens(): number | null {
+    calculateTrialLens(patient: Patient): number | null {
         let results: number | null;
 
-        const patientAge: number = this.currentPatient.age;
-        // const rawDistanceRx: number = this.currentPatient.valueAfterCalculatingAstigmatismRaw;
+        const patientAge: number = patient.age;
+        // const rawDistanceRx: number = patient.valueAfterCalculatingAstigmatismRaw;
         // Go through the age check,
         // and then get the proper
         // trial lens
@@ -35,7 +35,4 @@ export class Emmetropic extends RefractiveErrorTypeAbstract {
     }
     nameType: string = "Emmtropic";
 
-    constructor(patient: Patient) {
-        super(patient);
-    }
 }

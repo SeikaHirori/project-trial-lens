@@ -1,15 +1,16 @@
+import { Patient } from "../Patient/Patient";
 import { RefractiveErrorTypeAbstract } from "./RefractiveErrorTypeAbstract";
 
 
 export class Hyperopic extends RefractiveErrorTypeAbstract {
-    calculateTrialLens(): number | null {
+    calculateTrialLens(patient: Patient): number | null {
         let results: number | null;
 
-        const patientAge: number = this.currentPatient.age;
-        const rawDistanceRx: number = this.currentPatient.valueAfterCalculatingAstigmatismRaw;
+        const patientAge: number = patient.age;
+        const rawDistanceRx: number = patient.valueAfterCalculatingAstigmatismRaw;
 
         // Go through the age check,
-        // and then add the respective
+        // and then add the respectiveuml
         // value to the rawDistanceRx to 
         // get the trial lens
         if (this.isPatientAge60AndOver(patientAge)) {

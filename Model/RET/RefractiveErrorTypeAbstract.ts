@@ -3,17 +3,17 @@ import { Patient } from "../Patient/Patient";
 export abstract class RefractiveErrorTypeAbstract {
 
     abstract readonly nameType: string;
-    currentPatient: Patient;
+    // currentPatient: Patient;
 
-    constructor(patient: Patient) {
-        this.currentPatient = patient;
-    }
+    // constructor(patient: Patient) {
+    //     this.currentPatient = patient;
+    // }
 
     /**
      * 
      */
 
-    abstract calculateTrialLens(): number | null;
+    abstract calculateTrialLens(patient: Patient): number | null;
 
     /**
      *  Below is all the boolean statements whether the patient's age is within a certain range. Start with the limitless option first, which is age 60 AND over
