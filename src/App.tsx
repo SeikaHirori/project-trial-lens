@@ -28,8 +28,17 @@ function App() {
         <p>Axis: {patient.axis}</p>
         <p>Age: {patient.age}</p>
       </div>
+
       <div>
         {/* Button for change patient */}
+      </div>
+
+      <div>
+        {/* Refractive Error Type */}
+      </div>
+
+      <div>
+        {/* Calculate trial lens */}
       </div>
     </>
   )
