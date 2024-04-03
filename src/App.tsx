@@ -2,32 +2,35 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { Patient } from './Model/Patient'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [patient, setPatient] = useState<Patient>(new Patient(100,100,1,24))
+
+  const changePatient = (event) => {
+    event.preventDefault()
+
+    const newPatient: Patient = new Patient(200,200,2,49)
+
+    setPatient(newPatient)
+  }
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          Patient info
         </p>
+
+        <p>Sphere: {patient.sphereFormatted}</p>
+        <p>Cylinder: {patient.cylinderFormatted}</p>
+        <p>Axis: {patient.axis}</p>
+        <p>Age: {patient.age}</p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div>
+        {/* Button for change patient */}
+      </div>
     </>
   )
 }
