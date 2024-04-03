@@ -1,5 +1,9 @@
 import { Patient } from "./Patient/Patient";
-import { RefractiveErrorType, debugConcreteRefractiveErrorType, Emmetropic, Hyperopic, Myopia } from "./RET/RefractiveErrorType";
+import { RefractiveErrorType } from "./RET/RefractiveErrorTypeAbstract";
+import { Myopia } from "./RET/Myopia";
+import { Hyperopic } from "./RET/Hyperopic";
+import { Emmetropic } from "./RET/Emmetropic";
+import { debugConcreteRefractiveErrorType } from "./RET/ConcreteRefractiveErrorType";
 
 class TrialLens {
     #currentPatient: Patient;
