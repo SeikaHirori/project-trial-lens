@@ -1,3 +1,6 @@
 /.vitest/*
 .vscode/*
 node_modules/*
+
+*.js.map
+*.js
