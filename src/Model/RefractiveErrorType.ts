@@ -16,7 +16,11 @@ export abstract class RefractiveErrorType {
     abstract calculateTrialLens(): string
 
     /**
-     *  Below is all the boolean statements whether the patient's age is within a certain range. Start with the limitless option first, which is age 60 AND over
+     * Below is all the boolean
+     * statements whether the patient's
+     * age is within a certain range.
+     * Start with the limitless option
+     * first, which is age 60 AND over
      */
 
     isPatientAge60AndOver(currentAge: number): boolean {
@@ -204,5 +208,128 @@ export class Myopia extends RefractiveErrorType {
 
         return result;
     }
+<<<<<<< HEAD
+=======
+
+    /** 
+     * Based on the patient's age, use 
+     * their DistanceRx to determine 
+     * their trial lens
+    */
+
+    distanceRxIsOverNegative300(distanceRx: number): number | null {
+        let results: number;
+
+        // Get the trial lens from adding 
+        // together DistanceRx and 3.25
+        results = distanceRx + 325;
+
+        return results;
+    }
+
+    distanceRxIsExactlyNegative300(age: number): number | null {
+        let results: null;
+
+        // No trial lens needed for ALL ages
+        results = null;
+
+        return results;
+    }
+
+    distanceRxIsBetweenExactlyNegative250ToBelowNegative300(age: number): number | null {
+        let results: number | null;
+
+        if (this.isPatientAge60AndOver(age)) {
+            results = +75;
+        } else if (this.isPatientAgeBetween55to59(age)) {
+            results = +50;
+        } else {
+            // No trial lens needed for ages 54 AND lower
+            results = null;
+        }
+
+        return results;
+    }
+
+    distanceRxIsBetweenExactlyNegative200ToBelowNegative250(age: number): number | null {
+        let results: number | null;
+
+        if (this.isPatientAge60AndOver(age)) {
+            results = +125;
+        } else if (this.isPatientAgeBetween55to59(age)) {
+            results = +100;
+        } else if (this.isPatientAgeBetween50to54(age)) {
+            results = +50;
+        } else {
+            // No trial lens needed for ages 49 AND lower
+            results = null;
+        }
+
+        return results;
+    }
+
+    distanceRxIsBetweenExactlyNegative150ToBelowNegative200(age: number): number | null {
+        let results: number | null;
+
+        if (this.isPatientAge60AndOver(age)) {
+            results = +175;
+        } else if (this.isPatientAgeBetween55to59(age)) {
+            results = +150;
+        } else if (this.isPatientAgeBetween50to54(age)) {
+            results = +100;
+        } else if (this.isPatientAgeBetween45to49(age)) {
+            results = +50;
+        } else {
+            // No trial lens needed for ages 44 AND lower
+            results = null;
+        }
+
+        return results;
+    }
+
+    distanceRxIsBetweenExactlyNegative100ToBelowNegative150(age: number): number | null {
+        let results: number | null;
+
+        if (this.isPatientAge60AndOver(age)) {
+            results = +225;
+        } else if (this.isPatientAgeBetween55to59(age)) {
+            results = +200;
+        } else if (this.isPatientAgeBetween50to54(age)) {
+            results = +150;
+        } else if (this.isPatientAgeBetween45to49(age)) {
+            results = +100;
+        } else if (this.isPatientAgeBetween40to44(age)){
+            results = +50;
+        } else {
+            // No trial lens needed for ages 39 and lower
+            results = null;
+        }
+
+        return results;
+    }
+
+    distanceRxIsBetweenExactlyNegative050ToBelowNegative100(age: number): number | null {
+        let results: number | null;
+
+        if (this.isPatientAge60AndOver(age)) {
+            results = +275;
+        } else if (this.isPatientAgeBetween55to59(age)) {
+            results = +250;
+        } else if (this.isPatientAgeBetween50to54(age)) {
+            results = +200;
+        } else if (this.isPatientAgeBetween45to49(age)) {
+            results = +150;
+        } else if (this.isPatientAgeBetween40to44(age)){
+            results = +100;
+        } else if (this.isPatientAgeBetween30to39(age)){
+            results = +50;
+        } else {
+            // No trial lens needed for ages below 30
+            results = null;
+        }
+
+        return results;
+    }
+>>>>>>> f0a6f66 (FIX: comment structure)
 }
 
