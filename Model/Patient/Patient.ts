@@ -15,7 +15,6 @@ export class Patient {
         this.#valueAfterFactoringAstigmatism = this.calculateTotalAfterAstigmatism(sphere, cylinder);
     }
 
-
     get sphereRaw(): number {
         return this.#sphere;
     }
