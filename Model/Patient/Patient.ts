@@ -4,7 +4,7 @@ export class Patient {
     #axis: number;
     #age: number;
 
-    #valueAfterFactoringAstigmatism: number; // TODO
+    #valueAfterFactoringAstigmatism: number; // New DistanceRx after calculations
 
     constructor(sphere: number, cylinder: number, axis: number, age: number) {
         this.#sphere = sphere;

@@ -1,3 +1,4 @@
+import { parseAst } from "vite";
 import { Patient } from "../Patient/Patient";
 import { RefractiveErrorTypeAbstract } from "./RefractiveErrorTypeAbstract";
 
@@ -9,16 +10,29 @@ export class Myopia extends RefractiveErrorTypeAbstract {
         // Use the age of patient first, 
         // THEN use the patient's 
         // DistanceRx
-        let trialLens: number | null;
 
         const patientAge: number = patient.age;
         const rawDistanceRx: number = patient.valueAfterCalculatingAstigmatismRaw;
 
 
         // Start with oldest age first
-        throw new Error("Method not implemented.");
+        if (this.isPatientAge60AndOver(patientAge)) {
+            return this.calculateTrialLensForPatientAgeIs60AndOver(rawDistanceRx);
+        } else if (this.isPatientAgeBetween55to59(patientAge)) {
+            return this.calculateTrialLensForPatientAgeIsBetween55To59(rawDistanceRx);
+        } else if (this.isPatientAgeBetween50to54(patientAge)) {
+            return this.calculateTrialLensForPatientAgeIsBetween50To54(rawDistanceRx);
+        } else if (this.isPatientAgeBetween45to49(patientAge)) {
+            return this.calculateTrialLensForPatientAgeIsBetween45To49(rawDistanceRx)
+        } else if (this.isPatientAgeBetween40to44(patientAge)) {
+            return this.calculateTrialLensForPatientAgeIsBetween40To44(rawDistanceRx)
+        } else if (this.isPatientAgeBetween30to39(patientAge)) {
+            return this.calculateTrialLensForPatientAgeIsBetween30To39(rawDistanceRx)
+        } else {
+            // DistanceRx only
+            return this.calculateTrialLensForPatientAgeIsUnder30(rawDistanceRx)
+        }
 
-        return trialLens;
     }
 
 
@@ -101,59 +115,111 @@ export class Myopia extends RefractiveErrorTypeAbstract {
     // Based on the patient's age, use 
     // their DistanceRx to determine their 
     // trial lens
-    patientAgeIsUnder30(): number | null {
-        let results: number | null;
+    calculateTrialLensForPatientAgeIsUnder30(distanceRx: number): number | null {
+        if (this.isDistanceRxOverNegative300(distanceRx)){
+            return distanceRx + 325;
+        }
 
-
-
-        return results;
+        // Distance Rx is exactly -300
+        return null;
     }
 
-    patientAgeIsBetween(): number | null {
-        let results: number | null;
-
+    calculateTrialLensForPatientAgeIsBetween30To39(distanceRx: number): number | null {
+        if (this.isDistanceRxOverNegative300(distanceRx)){
+            return distanceRx + 325;
+        } else if (this.isDistanceRxOverNegative050(distanceRx)){
+            return 50;
+        }
         
-
-        return results;
+        // Distance Rx is exactly -300
+        return null;
     }
 
-    patientAgeIsBetween(): number | null {
-        let results: number | null;
+    calculateTrialLensForPatientAgeIsBetween40To44(distanceRx: number): number | null {
+        if (this.isDistanceRxOverNegative300(distanceRx)){
+            return distanceRx + 325;
+        } else if (this.isDistanceRxOverNegative100(distanceRx)){
+            return 50;
+        } else if (this.isDistanceRxOverNegative050(distanceRx)){
+            return 100;
+        }
 
 
-
-        return results;
+        // Distance Rx is exactly -300
+        return null;
     }
 
-    patientAgeIsBetween(): number | null {
-        let results: number | null;
+    calculateTrialLensForPatientAgeIsBetween45To49(distanceRx: number): number | null {
+        if (this.isDistanceRxOverNegative300(distanceRx)){
+            return distanceRx + 325;
+        } else if (this.isDistanceRxOverNegative150(distanceRx)){
+            return 50;
+        } else if (this.isDistanceRxOverNegative100(distanceRx)){
+            return 100;
+        } else if (this.isDistanceRxOverNegative050(distanceRx)){
+            return 150;
+        }
 
 
-
-        return results;
+        // Distance Rx is exactly -300
+        return null;
     }
 
-    patientAgeIsBetween(): number | null {
-        let results: number | null;
+    calculateTrialLensForPatientAgeIsBetween50To54(distanceRx: number): number | null {
+        if (this.isDistanceRxOverNegative300(distanceRx)){
+            return distanceRx + 325;
+        } else if (this.isDistanceRxOverNegative200(distanceRx)){
+            return 50;
+        } else if (this.isDistanceRxOverNegative150(distanceRx)){
+            return 100;
+        } else if (this.isDistanceRxOverNegative100(distanceRx)){
+            return 150;
+        } else if (this.isDistanceRxOverNegative050(distanceRx)){
+            return 200;
+        }
 
 
-
-        return results;
+        // Distance Rx is exactly -300
+        return null;
     }
 
-    patientAgeIsBetween(): number | null {
-        let results: number | null;
+    calculateTrialLensForPatientAgeIsBetween55To59(distanceRx: number): number | null {
+        if (this.isDistanceRxOverNegative300(distanceRx)){
+            return distanceRx + 325;
+        } else if (this.isDistanceRxOverNegative250(distanceRx)){
+            return 50;
+        } else if (this.isDistanceRxOverNegative200(distanceRx)){
+            return 100;
+        } else if (this.isDistanceRxOverNegative150(distanceRx)){
+            return 150;
+        } else if (this.isDistanceRxOverNegative100(distanceRx)){
+            return 200;
+        } else if (this.isDistanceRxOverNegative050(distanceRx)){
+            return 250;
+        }
 
 
-
-        return results;
+        // Distance Rx is exactly -300
+        return null;
     }
 
-    patientAgeIs60AndOver(): number | null {
-        let results: number | null;
+    calculateTrialLensForPatientAgeIs60AndOver(distanceRx: number): number | null {
+        if (this.isDistanceRxOverNegative300(distanceRx)){
+            return distanceRx + 325;
+        } else if (this.isDistanceRxOverNegative250(distanceRx)){
+            return 75;
+        } else if (this.isDistanceRxOverNegative200(distanceRx)){
+            return 125;
+        } else if (this.isDistanceRxOverNegative150(distanceRx)){
+            return 175;
+        } else if (this.isDistanceRxOverNegative100(distanceRx)){
+            return 225;
+        } else if (this.isDistanceRxOverNegative050(distanceRx)){
+            return 275;
+        }
 
 
-
-        return results;
+        // Distance Rx is exactly -300
+        return null;
     }
 }
