@@ -7,7 +7,7 @@ import PatientInfo from './components/PatientInfo'
 
 function App() {
   const [patient, setPatient] = useState<Patient>(new Patient(100,100,1,24))
-  const [userAnswer, setUserAnswer] = useState<number>()
+  const [userAnswer, setUserAnswer] = useState<UserAnswer>()
   
 
   const changePatient = (event) => {

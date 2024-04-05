@@ -1,6 +1,6 @@
 import { assert, describe, expect, test } from 'vitest';
 import { NewRandomPatient } from './NewRandomPatient.ts';
-import { Patient } from '../Model/Patient.ts';
+import { Patient } from '../Model/Patient/Patient.ts';
 
 describe('Unit testing methods from controller class "NewRandomPatient"', () => {
     const testNewRandomPatient: NewRandomPatient = new NewRandomPatient();
