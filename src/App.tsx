@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import React, { SetStateAction, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Patient } from './Model/Patient'
+import PatientInfo from './components/PatientInfo'
 
 function App() {
-  const [count, setCount] = useState(0)
   const [patient, setPatient] = useState<Patient>(new Patient(100,100,1,24))
+  const [userAnswer, setUserAnswer] = useState<number>()
 
   const changePatient = (event) => {
     event.preventDefault()
@@ -16,18 +17,21 @@ function App() {
     setPatient(newPatient)
   }
 
+  const handleAnswerChange = (event) => {
+    const input = event.target.value
+    console.log(input)
+    setUserAnswer(input)
+  }
+
+  const checkAnswer = (event: React.FormEvent) => {
+    event.preventDefault()
+    console.log("checking answer!")
+    
+  }
+
   return (
     <>
-      <div>
-        <p>
-          Patient info
-        </p>
-
-        <p>Sphere: {patient.sphereFormatted}</p>
-        <p>Cylinder: {patient.cylinderFormatted}</p>
-        <p>Axis: {patient.axis}</p>
-        <p>Age: {patient.age}</p>
-      </div>
+      <PatientInfo patient={patient}/>
 
       <div>
         {/* Button for change patient */}
@@ -38,7 +42,16 @@ function App() {
       </div>
 
       <div>
-        {/* Calculate trial lens */}
+        {/* Calculate trial lens/ answer box */}
+        <form onSubmit={checkAnswer}>
+          <input 
+            type='number'
+            value={userAnswer} 
+            onChange={handleAnswerChange}
+            step='0.25'
+          />
+          <button type='submit'>check</button>
+        </form>
       </div>
     </>
   )
