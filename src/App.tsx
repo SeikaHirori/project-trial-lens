@@ -4,10 +4,12 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Patient } from './Model/Patient/Patient'
 import PatientInfo from './components/PatientInfo'
+import AnswerPrompt from './components/AnswerPrompt'
 
 function App() {
   const [patient, setPatient] = useState<Patient>(new Patient(100,100,1,24))
-  const [userAnswer, setUserAnswer] = useState<UserAnswer>()
+  const [userAnswer, setUserAnswer] = useState<number>(0)
+  const [isTrialLensNeeded, setIsTrialLensNeeded] = useState<boolean>(true)
   
 
   const changePatient = (event) => {
@@ -19,14 +21,24 @@ function App() {
   }
 
   const handleAnswerChange = (event) => {
-    const input = event.target.value
-    console.log(input)
-    setUserAnswer(input)
+    const numInput = event.target.value
+
+    console.log(numInput)
+    setUserAnswer(numInput)
   }
 
   const checkAnswer = (event: React.FormEvent) => {
     event.preventDefault()
     console.log("checking answer!")
+
+    console.log("Does user think trial lens are needed?");
+    
+    if (isTrialLensNeeded) {
+      console.log("They said: YES!");
+
+    } else {
+      console.log("They said: NO!");
+    }
     
   }
 
@@ -42,18 +54,11 @@ function App() {
         {/* Refractive Error Type */}
       </div>
 
-      <div>
-        {/* Calculate trial lens/ answer box */}
-        <form onSubmit={checkAnswer}>
-          <input 
-            type='number'
-            value={userAnswer} 
-            onChange={handleAnswerChange}
-            step='0.25'
-          />
-          <button type='submit'>check</button>
-        </form>
-      </div>
+      <AnswerPrompt 
+        checkAnswer={checkAnswer}
+        userAnswer={userAnswer} 
+        handleAnswerChange={handleAnswerChange} 
+      />
     </>
   )
 }
