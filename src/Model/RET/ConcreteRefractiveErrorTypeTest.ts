@@ -8,7 +8,7 @@ import { Patient } from '../Patient/Patient.ts';
 describe('Unit testing abstract "RefractiveErrorType" through the concrete class "baseRefractiveErrorType"', () => {
     const currentPatient: Patient = new Patient(+3, 0.25, 18, 25);
 
-    const concreteRefractiveErrorType: debugConcreteRefractiveErrorType = new debugConcreteRefractiveErrorType(currentPatient);
+    const concreteRefractiveErrorType: debugConcreteRefractiveErrorType = new debugConcreteRefractiveErrorType();
 
     test("Check nameType", () => {
         expect(concreteRefractiveErrorType.nameType).toBe("Debug/ Concrete: RefractiveErrorType");

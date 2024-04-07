@@ -1,7 +1,5 @@
-import { parseAst } from "vite";
 import { Patient } from "../Patient/Patient";
 import { RefractiveErrorTypeAbstract } from "./RefractiveErrorTypeAbstract";
-
 
 export class Myopia extends RefractiveErrorTypeAbstract {
     nameType: string = "Myopia";

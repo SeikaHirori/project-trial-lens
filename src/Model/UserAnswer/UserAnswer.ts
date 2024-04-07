@@ -1,5 +1,3 @@
-import { aN } from "vitest/dist/reporters-P7C2ytIv.js"
-
 export default class UserAnswer {
     readonly #answer: number 
     readonly isTrialLensNotNeeded: boolean

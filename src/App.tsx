@@ -1,6 +1,4 @@
-import React, { SetStateAction, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState } from 'react'
 import './App.css'
 import { Patient } from './Model/Patient/Patient'
 import PatientInfo from './components/PatientInfo'
@@ -12,7 +10,7 @@ function App() {
   const [isTrialLenNotsNeeded, setIsTrialLenNotsNeeded] = useState<boolean>(false)
   
 
-  const changePatient = (event) => {
+  const changePatient = (event: { preventDefault: () => void }) => {
     event.preventDefault()
 
     const newPatient: Patient = new Patient(200,200,2,49)
@@ -20,7 +18,7 @@ function App() {
     setPatient(newPatient)
   }
 
-  const handleAnswerChange = (event) => {
+  const handleAnswerChange = (event: { target: { value: any } }) => {
     const numInput = event.target.value
 
     console.log(numInput)

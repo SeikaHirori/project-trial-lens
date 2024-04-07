@@ -6,7 +6,7 @@ import { Patient } from '../Patient/Patient.ts';
 describe('Testing Emmetropic, which was inherited from abstract class "RefractiveErrorType"', () => {
     const currentPatient: Patient = new Patient(0, 0.25, 18, 25);
 
-    const currentEmmetropic: Emmetropic = new Emmetropic(currentPatient);
+    const currentEmmetropic: Emmetropic = new Emmetropic();
 
     test('Check that Emmetropic is subclass of RefractiveErrorType', () => {
         const result1: boolean = (currentEmmetropic instanceof RefractiveErrorTypeAbstract);

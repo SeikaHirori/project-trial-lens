@@ -1,4 +1,4 @@
-import { Patient } from "../Model/Patient";
+import { Patient } from "../Model/Patient/Patient";
 
 /**
  * Values for Sphere/ Distance Rx AND Cylinder should be in increments of quarters (or if you divide the value by 25, there should not be a remainder.)
