@@ -1,8 +1,0 @@
-/.vitest/*
-.vscode/*
-node_modules/*
-
-!dist/assets/*.js
-
-src/*.js.map
-src/*.js
