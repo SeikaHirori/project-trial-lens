@@ -1,4 +1,4 @@
-import {Patient} from '../Model/Patient';
+import {Patient} from '../Model/Patient/Patient';
 
 const PatientInfo = (props: {patient: Patient}) => {
     const { patient } = props;

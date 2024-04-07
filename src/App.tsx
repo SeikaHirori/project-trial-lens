@@ -9,7 +9,7 @@ import AnswerPrompt from './components/AnswerPrompt'
 function App() {
   const [patient, setPatient] = useState<Patient>(new Patient(100,100,1,24))
   const [userAnswer, setUserAnswer] = useState<number>(0)
-  const [isTrialLensNeeded, setIsTrialLensNeeded] = useState<boolean>(true)
+  const [isTrialLenNotsNeeded, setIsTrialLenNotsNeeded] = useState<boolean>(false)
   
 
   const changePatient = (event) => {
@@ -33,13 +33,26 @@ function App() {
 
     console.log("Does user think trial lens are needed?");
     
-    if (isTrialLensNeeded) {
+    if (isTrialLenNotsNeeded) {
       console.log("They said: YES!");
 
     } else {
       console.log("They said: NO!");
     }
     
+  }
+
+  const handleCheckboxNotNeeded = () => {
+    const switcherro = !isTrialLenNotsNeeded
+
+    const message = switcherro 
+      ? "Trial lens not needed"
+      : "Trial lens is needed"
+    setIsTrialLenNotsNeeded(switcherro)
+    console.log(`User says that trial lens is ${message}`
+    );
+    
+    console.log(switcherro); 
   }
 
   return (
@@ -56,9 +69,10 @@ function App() {
 
       <AnswerPrompt 
         checkAnswer={checkAnswer}
-        userAnswer={userAnswer} 
-        handleAnswerChange={handleAnswerChange} 
-      />
+        userAnswer={userAnswer}
+        handleAnswerChange={handleAnswerChange}
+        isTrialLensNotNeeded={isTrialLenNotsNeeded}
+        handleCheckboxNotNeeded={handleCheckboxNotNeeded}      />
     </>
   )
 }

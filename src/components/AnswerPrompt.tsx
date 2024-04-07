@@ -3,9 +3,11 @@
 const AnswerPrompt = (props: {
     checkAnswer: (event) => void,
     userAnswer: number,
-    handleAnswerChange: (event) => void
+    handleAnswerChange: (event) => void,
+    isTrialLensNotNeeded: boolean,
+    handleCheckboxNotNeeded: () => void
 }) => {
-    const {checkAnswer, userAnswer, handleAnswerChange} = props;
+    const {checkAnswer, userAnswer, handleAnswerChange, isTrialLensNotNeeded, handleCheckboxNotNeeded} = props;
 
     return (
         <div>
@@ -21,13 +23,14 @@ const AnswerPrompt = (props: {
             </div>
 
             <div>
-                Not Needed 
+                
                 <input 
                     type="checkbox" 
                     name="isTrialLensNeeded" 
                     id="isTrialLensNeeded" 
-                    checked={false}
+                    onChange={handleCheckboxNotNeeded}
                 />
+                <span> Is trial lens not needed?: {isTrialLensNotNeeded ? "Not needed" : "I NEED ITTT" } </span>
             </div>
 
             <div>
