@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import { Patient } from './Model/Patient/Patient'
 import PatientInfo from './components/PatientInfo'
@@ -9,6 +9,9 @@ function App() {
   const [userAnswer, setUserAnswer] = useState<number>(0)
   const [isTrialLenNotsNeeded, setIsTrialLenNotsNeeded] = useState<boolean>(false)
   
+  useEffect(() => {
+    document.title = "Project Trial Lens"
+  })
 
   const changePatient = (event: { preventDefault: () => void }) => {
     event.preventDefault()
