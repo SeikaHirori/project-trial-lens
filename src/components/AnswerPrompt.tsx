@@ -1,3 +1,4 @@
+import UserValue from "./UserValue";
 
 
 const AnswerPrompt = (props: {
@@ -13,17 +14,15 @@ const AnswerPrompt = (props: {
         <div>
         {/* Calculate trial lens/ answer box */}
         <form onSubmit={checkAnswer}>
+            
             <div>
-                <input 
-                    type='number'
-                    value={userAnswer} 
-                    onChange={handleAnswerChange}
-                    step='0.25'
+                <UserValue 
+                    userAnswer={userAnswer} 
+                    handleAnswerChange={handleAnswerChange} 
+                    isTrialLensNotNeeded={isTrialLensNotNeeded} 
+                    handleCheckboxNotNeeded={handleCheckboxNotNeeded} 
                 />
-            </div>
 
-            <div>
-                
                 <input 
                     type="checkbox" 
                     name="isTrialLensNeeded" 
