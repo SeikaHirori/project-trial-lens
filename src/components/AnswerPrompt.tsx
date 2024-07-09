@@ -22,6 +22,7 @@ const AnswerPrompt = (props: {
                     isTrialLensNotNeeded={isTrialLensNotNeeded} 
                     handleCheckboxNotNeeded={handleCheckboxNotNeeded} 
                 />
+                <br/>
 
                 <input 
                     type="checkbox" 

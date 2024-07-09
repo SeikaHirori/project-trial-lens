@@ -2,6 +2,11 @@ import {Patient} from '../Model/Patient/Patient';
 
 const PatientInfo = (props: {patient: Patient}) => {
     const { patient } = props;
+    
+    let sphere = patient.sphereFormatted
+    let cyl = patient.cylinderFormatted
+    let axis = patient.axis
+    let age = patient.age
 
     return (
         <div>
@@ -9,10 +14,10 @@ const PatientInfo = (props: {patient: Patient}) => {
                 Patient info
             </p>
 
-            <p>Sphere: {patient.sphereFormatted}</p>
-            <p>Cylinder: {patient.cylinderFormatted}</p>
-            <p>Axis: {patient.axis}</p>
-            <p>Age: {patient.age}</p>
+            <p>Sphere: {sphere}</p>
+            <p>Cylinder: {cyl}</p>
+            <p>Axis: {axis}</p>
+            <p>Age: {age}</p>
       </div>
     )
 }
