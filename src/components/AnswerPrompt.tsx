@@ -30,8 +30,9 @@ const AnswerPrompt = (props: {
                     id="isTrialLensNeeded" 
                     onChange={handleCheckboxNotNeeded}
                 />
-                <span> Is trial lens not needed?: {isTrialLensNotNeeded ? "Not needed" : "I NEED ITTT" } </span>
+                <span> Trial Lens NOT Needed </span>
             </div>
+            <br />
 
             <div>
                 <button type='submit'>check</button>

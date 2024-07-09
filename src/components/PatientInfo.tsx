@@ -10,13 +10,7 @@ const PatientInfo = (props: {patient: Patient}) => {
 
     return (
         <div>
-            <p>
-                Patient info
-            </p>
-
-            <p>Sphere: {sphere}</p>
-            <p>Cylinder: {cyl}</p>
-            <p>Axis: {axis}</p>
+            <p>DistanceRx: {sphere}/ {cyl} x {axis}</p>
             <p>Age: {age}</p>
       </div>
     )
