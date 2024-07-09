@@ -1,0 +1,1 @@
+[ ] Have number ALWAYS display up to 2 decimal places for user input
