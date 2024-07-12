@@ -7,9 +7,11 @@ const AnswerPrompt = (props: {
     userAnswer: number,
     handleAnswerChange: (event) => void,
     isTrialLensNotNeeded: boolean,
-    handleCheckboxNotNeeded: () => void
+    handleCheckboxNotNeeded: () => void,
+    handleUserSubmitted: () => void,
+    userSubmitted: boolean,
 }) => {
-    const {checkAnswer, userAnswer, handleAnswerChange, isTrialLensNotNeeded, handleCheckboxNotNeeded} = props;
+    const {checkAnswer, userAnswer, handleAnswerChange, isTrialLensNotNeeded, handleCheckboxNotNeeded, handleUserSubmitted, userSubmitted} = props;
 
     return (
         <div>
@@ -37,13 +39,13 @@ const AnswerPrompt = (props: {
 
             <div>
                 <button type='submit' onClick={
-
+                    handleUserSubmitted
                 }>check</button>
             </div>
 
             <div>
                 <Corrections 
-                    userSubmitted={true}
+                    userSubmitted={userSubmitted}
                 />
             </div>
 

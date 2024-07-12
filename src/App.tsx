@@ -8,6 +8,7 @@ function App() {
   const [patient, setPatient] = useState<Patient>(new Patient(200,-150,180,24))
   const [userAnswer, setUserAnswer] = useState<number>(0)
   const [isTrialLenNotsNeeded, setIsTrialLenNotsNeeded] = useState<boolean>(false)
+  const [userSubmitted, setUserSubmitted] = useState<boolean>(false)
   
   useEffect(() => {
     document.title = "Project Trial Lens"
@@ -56,6 +57,16 @@ function App() {
     console.log(switcherro); 
   }
 
+  const handleUserSubmitted = () => {
+    const switcherro = true
+
+    const message = userSubmitted 
+      ? "Hmmm, this was corrected before. Checking again."
+      : "This is the first correction!"
+    console.log(message);
+    setUserSubmitted(switcherro)
+  }
+
   return (
     <>
       <PatientInfo patient={patient}/>
@@ -73,7 +84,9 @@ function App() {
         userAnswer={userAnswer}
         handleAnswerChange={handleAnswerChange}
         isTrialLensNotNeeded={isTrialLenNotsNeeded}
-        handleCheckboxNotNeeded={handleCheckboxNotNeeded}      
+        handleCheckboxNotNeeded={handleCheckboxNotNeeded}   
+        handleUserSubmitted={handleUserSubmitted}   
+        userSubmitted={userSubmitted}
       />
     </>
   )
