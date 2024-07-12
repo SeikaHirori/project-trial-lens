@@ -5,7 +5,7 @@ import PatientInfo from './components/PatientInfo'
 import AnswerPrompt from './components/AnswerPrompt'
 
 function App() {
-  const [patient, setPatient] = useState<Patient>(new Patient(100,100,1,24))
+  const [patient, setPatient] = useState<Patient>(new Patient(200,-125,180,24))
   const [userAnswer, setUserAnswer] = useState<number>(0)
   const [isTrialLenNotsNeeded, setIsTrialLenNotsNeeded] = useState<boolean>(false)
   
@@ -16,7 +16,7 @@ function App() {
   const changePatient = (event: { preventDefault: () => void }) => {
     event.preventDefault()
 
-    const newPatient: Patient = new Patient(200,200,2,49)
+    const newPatient: Patient = new Patient(+400, -250, 180, 49)
 
     setPatient(newPatient)
   }
