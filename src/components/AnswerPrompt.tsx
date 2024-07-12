@@ -1,3 +1,4 @@
+import Corrections from "./Corrections";
 import UserValue from "./UserValue";
 
 
@@ -35,7 +36,15 @@ const AnswerPrompt = (props: {
             <br />
 
             <div>
-                <button type='submit'>check</button>
+                <button type='submit' onClick={
+
+                }>check</button>
+            </div>
+
+            <div>
+                <Corrections 
+                    userSubmitted={true}
+                />
             </div>
 
         </form>

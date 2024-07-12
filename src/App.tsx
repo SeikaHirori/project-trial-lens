@@ -73,7 +73,8 @@ function App() {
         userAnswer={userAnswer}
         handleAnswerChange={handleAnswerChange}
         isTrialLensNotNeeded={isTrialLenNotsNeeded}
-        handleCheckboxNotNeeded={handleCheckboxNotNeeded}      />
+        handleCheckboxNotNeeded={handleCheckboxNotNeeded}      
+      />
     </>
   )
 }
