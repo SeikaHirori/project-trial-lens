@@ -53,10 +53,10 @@ describe('Patient with positive sphere and low cylinder', () => {
 
     test('Verify the getters', () => {
 
-        expect(currentPatient.sphereRaw).toBe(testSphereRaw);
+        expect(currentPatient.sphere).toBe(testSphereRaw);
         expect(currentPatient.sphereFormatted).toBe(testSphereFormatted);
     
-        expect(currentPatient.cylinderRaw).toBe(testCylinderRaw);
+        expect(currentPatient.cylinder).toBe(testCylinderRaw);
         expect(currentPatient.cylinderFormatted).toBe(testCylinderFormatted);
     
         expect(currentPatient.axis).toBe(testAxis);
@@ -82,10 +82,10 @@ describe('Patient with negative sphere/ Distance Rx and high cylinder', () => {
 
     const testAge: number = 56;
     test('Testing getters', () => {
-        expect(currentPatient.sphereRaw).toBe(testSphereRaw);
+        expect(currentPatient.sphere).toBe(testSphereRaw);
         expect(currentPatient.sphereFormatted).toBe(testSphereFormatted);
     
-        expect(currentPatient.cylinderRaw).toBe(testCylinderRaw);
+        expect(currentPatient.cylinder).toBe(testCylinderRaw);
         expect(currentPatient.cylinderFormatted).toBe(testCylinderFormatted);
     
         expect(currentPatient.axis).toBe(testAxis);

@@ -14,7 +14,7 @@ class TrialLens {
 
     // // TODO
     determineRefractiveErrorType(patient: Patient): RefractiveErrorTypeAbstract {
-        const patientSphere: number = patient.sphereRaw;
+        const patientSphere: number = patient.sphere;
 
         if (patientSphere < 0) {
             return new Myopia();
