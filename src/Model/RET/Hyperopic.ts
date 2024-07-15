@@ -7,7 +7,10 @@ export class Hyperopic extends RefractiveErrorTypeAbstract {
         let results: number | null;
 
         const patientAge: number = patient.age;
-        const rawDistanceRx: number = patient.valueAfterCalculatingAstigmatismRaw;
+        const sphere: number = patient.sphere;
+        const cylinder: number = patient.cylinder;
+        
+        const rawDistanceRx: number = calculateTotalAfterAstigmatism(sphere, cylinder);
 
         // Go through the age check,
         // and then add the respectiveuml

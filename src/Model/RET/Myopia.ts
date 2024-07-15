@@ -10,7 +10,10 @@ export class Myopia extends RefractiveErrorTypeAbstract {
         // DistanceRx
 
         const patientAge: number = patient.age;
-        const rawDistanceRx: number = patient.valueAfterCalculatingAstigmatismRaw;
+        const sphere: number = patient.sphere;
+        const cylinder: number = patient.cylinder;
+
+        const rawDistanceRx: number = calculateTotalAfterAstigmatism(sphere, cylinder);
 
 
         // Start with oldest age first
