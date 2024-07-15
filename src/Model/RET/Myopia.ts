@@ -1,5 +1,7 @@
 import { Patient } from "../Patient/Patient";
 import { RefractiveErrorTypeAbstract } from "./RefractiveErrorTypeAbstract";
+import { calculateTotalAfterAstigmatism } from '../../Controller/Calculations.ts';
+
 
 export class Myopia extends RefractiveErrorTypeAbstract {
     nameType: string = "Myopia";
@@ -9,7 +11,7 @@ export class Myopia extends RefractiveErrorTypeAbstract {
         // THEN use the patient's 
         // DistanceRx
 
-        const patientAge: number = patient.age;
+        const age: number = patient.age;
         const sphere: number = patient.sphere;
         const cylinder: number = patient.cylinder;
 
@@ -17,21 +19,21 @@ export class Myopia extends RefractiveErrorTypeAbstract {
 
 
         // Start with oldest age first
-        if (this.isPatientAge60AndOver(patientAge)) {
-            return this.calculateTrialLensForPatientAgeIs60AndOver(rawDistanceRx);
-        } else if (this.isPatientAgeBetween55to59(patientAge)) {
-            return this.calculateTrialLensForPatientAgeIsBetween55To59(rawDistanceRx);
-        } else if (this.isPatientAgeBetween50to54(patientAge)) {
-            return this.calculateTrialLensForPatientAgeIsBetween50To54(rawDistanceRx);
-        } else if (this.isPatientAgeBetween45to49(patientAge)) {
-            return this.calculateTrialLensForPatientAgeIsBetween45To49(rawDistanceRx)
-        } else if (this.isPatientAgeBetween40to44(patientAge)) {
-            return this.calculateTrialLensForPatientAgeIsBetween40To44(rawDistanceRx)
-        } else if (this.isPatientAgeBetween30to39(patientAge)) {
-            return this.calculateTrialLensForPatientAgeIsBetween30To39(rawDistanceRx)
+        if (this.isAge60AndOver(age)) {
+            return this.calculateTrialLensForageIs60AndOver(rawDistanceRx);
+        } else if (this.isAgeBetween55to59(age)) {
+            return this.calculateTrialLensForageIsBetween55To59(rawDistanceRx);
+        } else if (this.isAgeBetween50to54(age)) {
+            return this.calculateTrialLensForageIsBetween50To54(rawDistanceRx);
+        } else if (this.isAgeBetween45to49(age)) {
+            return this.calculateTrialLensForageIsBetween45To49(rawDistanceRx)
+        } else if (this.isAgeBetween40to44(age)) {
+            return this.calculateTrialLensForageIsBetween40To44(rawDistanceRx)
+        } else if (this.isAgeBetween30to39(age)) {
+            return this.calculateTrialLensForageIsBetween30To39(rawDistanceRx)
         } else {
             // DistanceRx only
-            return this.calculateTrialLensForPatientAgeIsUnder30(rawDistanceRx)
+            return this.calculateTrialLensForageIsUnder30(rawDistanceRx)
         }
 
     }
@@ -116,7 +118,7 @@ export class Myopia extends RefractiveErrorTypeAbstract {
     // Based on the patient's age, use 
     // their DistanceRx to determine their 
     // trial lens
-    calculateTrialLensForPatientAgeIsUnder30(distanceRx: number): number | null {
+    calculateTrialLensForageIsUnder30(distanceRx: number): number | null {
         if (this.isDistanceRxOverNegative300(distanceRx)){
             return distanceRx + 325;
         }
@@ -125,7 +127,7 @@ export class Myopia extends RefractiveErrorTypeAbstract {
         return null;
     }
 
-    calculateTrialLensForPatientAgeIsBetween30To39(distanceRx: number): number | null {
+    calculateTrialLensForageIsBetween30To39(distanceRx: number): number | null {
         if (this.isDistanceRxOverNegative300(distanceRx)){
             return distanceRx + 325;
         } else if (this.isDistanceRxOverNegative050(distanceRx)){
@@ -136,7 +138,7 @@ export class Myopia extends RefractiveErrorTypeAbstract {
         return null;
     }
 
-    calculateTrialLensForPatientAgeIsBetween40To44(distanceRx: number): number | null {
+    calculateTrialLensForageIsBetween40To44(distanceRx: number): number | null {
         if (this.isDistanceRxOverNegative300(distanceRx)){
             return distanceRx + 325;
         } else if (this.isDistanceRxOverNegative100(distanceRx)){
@@ -150,7 +152,7 @@ export class Myopia extends RefractiveErrorTypeAbstract {
         return null;
     }
 
-    calculateTrialLensForPatientAgeIsBetween45To49(distanceRx: number): number | null {
+    calculateTrialLensForageIsBetween45To49(distanceRx: number): number | null {
         if (this.isDistanceRxOverNegative300(distanceRx)){
             return distanceRx + 325;
         } else if (this.isDistanceRxOverNegative150(distanceRx)){
@@ -166,7 +168,7 @@ export class Myopia extends RefractiveErrorTypeAbstract {
         return null;
     }
 
-    calculateTrialLensForPatientAgeIsBetween50To54(distanceRx: number): number | null {
+    calculateTrialLensForageIsBetween50To54(distanceRx: number): number | null {
         if (this.isDistanceRxOverNegative300(distanceRx)){
             return distanceRx + 325;
         } else if (this.isDistanceRxOverNegative200(distanceRx)){
@@ -184,7 +186,7 @@ export class Myopia extends RefractiveErrorTypeAbstract {
         return null;
     }
 
-    calculateTrialLensForPatientAgeIsBetween55To59(distanceRx: number): number | null {
+    calculateTrialLensForageIsBetween55To59(distanceRx: number): number | null {
         if (this.isDistanceRxOverNegative300(distanceRx)){
             return distanceRx + 325;
         } else if (this.isDistanceRxOverNegative250(distanceRx)){
@@ -204,7 +206,7 @@ export class Myopia extends RefractiveErrorTypeAbstract {
         return null;
     }
 
-    calculateTrialLensForPatientAgeIs60AndOver(distanceRx: number): number | null {
+    calculateTrialLensForageIs60AndOver(distanceRx: number): number | null {
         if (this.isDistanceRxOverNegative300(distanceRx)){
             return distanceRx + 325;
         } else if (this.isDistanceRxOverNegative250(distanceRx)){

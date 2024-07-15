@@ -10,7 +10,7 @@
  * @param cylinder 
  * @returns RAW total after factoring in astigmatism
  */
-const calculateTotalAfterAstigmatism = (sphere: number, cylinder: number): number => {
+export const calculateTotalAfterAstigmatism = (sphere: number, cylinder: number): number => {
 
     if (cylinder < 50) {
         // Use sphere Only; ignore cylinder
@@ -46,3 +46,5 @@ const calculateTotalAfterAstigmatism = (sphere: number, cylinder: number): numbe
 
     throw new Error("Unable to cacluate total after Astigmatism");
 }
+
+calculateTotalAfterAstigmatism

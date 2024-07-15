@@ -6,22 +6,22 @@ export class Emmetropic extends RefractiveErrorTypeAbstract {
     calculateTrialLens(patient: Patient): number | null {
         let results: number | null;
 
-        const patientAge: number = patient.age;
+        const age: number = patient.age;
         // const rawDistanceRx: number = patient.valueAfterCalculatingAstigmatismRaw;
         // Go through the age check,
         // and then get the proper
         // trial lens
-        if (this.isPatientAge60AndOver(patientAge)) {
+        if (this.isAge60AndOver(age)) {
             results = 325;
-        } else if (this.isPatientAgeBetween55to59(patientAge)) {
+        } else if (this.isAgeBetween55to59(age)) {
             results = 300;
-        } else if (this.isPatientAgeBetween50to54(patientAge)) {
+        } else if (this.isAgeBetween50to54(age)) {
             results = 250;
-        } else if (this.isPatientAgeBetween45to49(patientAge)) {
+        } else if (this.isAgeBetween45to49(age)) {
             results = 200;
-        } else if (this.isPatientAgeBetween40to44(patientAge)) {
+        } else if (this.isAgeBetween40to44(age)) {
             results = 150;
-        } else if (this.isPatientAgeBetween30to39(patientAge)) {
+        } else if (this.isAgeBetween30to39(age)) {
             results = 100;
         } else {
             // No correction needed
