@@ -1,4 +1,5 @@
 import { Patient } from "../Model/Patient/Patient";
+import getRandom from "./Random";
 
 /**
  * Values for Sphere/ Distance Rx AND Cylinder should be in increments of quarters (or if you divide the value by 25, there should not be a remainder.)
@@ -19,12 +20,16 @@ export class NewRandomPatient {
         const newAxis: number = this.generateAxis();
         const newAge: number = this.generateAge();
 
-        throw new Error("Method not implemented.");
     }
 
     // TODO
     generateSphere(): number {
         
+        const whole: number = getRandom(-10, 10);
+        const decimal: number = getRandom(0, 3);
+
+
+
         throw new Error("Method not implemented.");
     }
 

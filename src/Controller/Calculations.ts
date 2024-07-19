@@ -42,9 +42,10 @@ export const calculateTotalAfterAstigmatism = (sphere: number, cylinder: number)
         const fullSpherocylinderCorrection: number = sphere + cylinder;
 
         return fullSpherocylinderCorrection;
+    } else {
+        throw new Error("Unable to cacluate total after Astigmatism");
     }
 
-    throw new Error("Unable to cacluate total after Astigmatism");
 }
 
 calculateTotalAfterAstigmatism
