@@ -5,6 +5,10 @@
 
 // TODO: Write unit tests
 /**
+ * Determine route based on how much astigmatism there is.
+ * 
+ * Using doc "Perimetry-Trial-Lens-Guideline.docx", this is
+ *  based on blue box "How much astigmatism is there?"
  * 
  * @param sphere 
  * @param cylinder 
@@ -48,4 +52,3 @@ export const calculateTotalAfterAstigmatism = (sphere: number, cylinder: number)
 
 }
 
-calculateTotalAfterAstigmatism
