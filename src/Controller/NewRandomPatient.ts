@@ -20,6 +20,7 @@ export class NewRandomPatient {
         const newAxis: number = this.generateAxis();
         const newAge: number = this.generateAge();
 
+        return new Patient(newSphere, newCylinder, newAxis, newAge);
     }
 
     // TODO
@@ -27,7 +28,6 @@ export class NewRandomPatient {
         
         const whole: number = getRandom(-10, 10);
         const decimal: number = getRandom(0, 3);
-
 
 
         throw new Error("Method not implemented.");
