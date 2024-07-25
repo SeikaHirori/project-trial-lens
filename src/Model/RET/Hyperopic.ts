@@ -31,6 +31,7 @@ export class Hyperopic extends RefractiveErrorTypeAbstract {
         } else if (this.isAgeBetween30to39(age)) {
             results = rawDistanceRx + 100;
         } else {
+            // Age is below 30
             // DistanceRx only
             results = rawDistanceRx;
         }
