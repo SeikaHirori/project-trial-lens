@@ -23,32 +23,43 @@ export class NewRandomPatient {
         return new Patient(newSphere, newCylinder, newAxis, newAge);
     }
 
-    // TODO
+    /**
+     * Range should be -10 to 10
+     * @returns 
+     */
     generateSphere(): number {
         
         const whole: number = getRandom(-10, 10);
         const decimal: number = getRandom(0, 3);
 
-
-        throw new Error("Method not implemented.");
+        return whole + (decimal * 25)
     }
 
-    // TODO
+    /** // TODO
+     * Based on doc "Project Trail Lens - Meeting 8/29/2023",
+     *  the range for cylinders should be -10 to 0;
+     * 
+     * // FIXME Check if cylinder is negative or positive
+     */
     generateCylinder(): number {
-        
-        throw new Error("Method not implemented.");
+        // Return negative value
+        const cyl: number = getRandom(0, 10)
+        return -(cyl);
     }
 
-    // TODO
+    /** // TODO
+     * 
+     *  // FIXME: (unsure ???) Range for Axis might be 0 to 180
+     */
     generateAxis(): number {
-        
-        throw new Error("Method not implemented.");
+        return getRandom(0, 180);
     }
 
-    // TODO
+    /** // TODO
+     * Range for age is 0 to 100
+     */
     generateAge(): number {
-        
-        throw new Error("Method not implemented.");
+        return getRandom(0, 100);
     }
 
     verifyValueIsDivisibleBy4(value: number): boolean {
