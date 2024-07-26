@@ -66,7 +66,7 @@ function generateAge(): number {
     return getRandom(0, 100);
 }
 
-function verifyValueIsDivisibleBy25(value: number): boolean {
+export function verifyValueIsDivisibleBy25(value: number): boolean {
     let result: boolean = false;
 
     if (value % 25 === 0) {
@@ -76,5 +76,3 @@ function verifyValueIsDivisibleBy25(value: number): boolean {
     return result;
 }
 
-
- 
