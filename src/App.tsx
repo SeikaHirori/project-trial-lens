@@ -3,9 +3,11 @@ import './App.css'
 import { Patient } from './Model/Patient/Patient'
 import PatientInfo from './components/PatientInfo'
 import AnswerPrompt from './components/AnswerPrompt'
+import Problems from './Model/Problems/Problems'
 
 function App() {
   const [patient, setPatient] = useState<Patient>(new Patient(200,-150,180,24))
+  const [problems, setProblems] = useState<Problems>(new Problems(5));
   const [userAnswer, setUserAnswer] = useState<number>(0)
   const [isTrialLenNotsNeeded, setIsTrialLenNotsNeeded] = useState<boolean>(false)
   const [userSubmitted, setUserSubmitted] = useState<boolean>(false)
@@ -24,6 +26,7 @@ function App() {
 
   const handleAnswerChange = (event: { target: { value: any } }) => {
     const numInput = event.target.value
+
 
     console.log(numInput)
     setUserAnswer(numInput)
@@ -68,6 +71,7 @@ function App() {
   }
 
   return (
+
     <>
       <PatientInfo patient={patient}/>
 
