@@ -48,6 +48,8 @@ export default class Problems {
 
     isNewProblemSetUnique(newProblemSet: ProblemSet, problems: ProblemSet[]): boolean {
         for (const p of problems) {
+
+            // Exit if patient's info already exist
             if (p.doesPatientInfoAlreadyExist(newProblemSet)) {
                 return false;
             }
