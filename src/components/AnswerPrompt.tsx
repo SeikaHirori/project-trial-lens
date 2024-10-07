@@ -1,4 +1,4 @@
-import Corrections from "./Corrections";
+import Results from "./Results";
 import UserValue from "./UserValue";
 
 
@@ -44,7 +44,7 @@ const AnswerPrompt = (props: {
             </div>
 
             <div>
-                <Corrections 
+                <Results 
                     userSubmitted={userSubmitted}
                 />
             </div>

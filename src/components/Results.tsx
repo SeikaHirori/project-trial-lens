@@ -1,6 +1,6 @@
 
 
-const Corrections = (props: {
+const Results = (props: {
     userSubmitted: boolean
 }) => {
 
@@ -17,4 +17,4 @@ const Corrections = (props: {
     }
 }
 
-export default Corrections
+export default Results
