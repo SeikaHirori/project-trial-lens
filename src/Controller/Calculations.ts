@@ -19,7 +19,7 @@ export const calculateTotalAfterAstigmatism = (sphere: number, cylinder: number)
     if (cylinder < 50) {
         // Use sphere Only; ignore cylinder
         return sphere;
-    } else if (cylinder >= 50 && cylinder <= 150) {
+    } else if (cylinder >= 50 && cylinder <= 100) {
         // Spherical Equivalent
 
         /**
@@ -38,7 +38,7 @@ export const calculateTotalAfterAstigmatism = (sphere: number, cylinder: number)
 
         return sphericalEquivalent;
 
-    } else if (cylinder > 150) {
+    } else if (cylinder > 100) {
         // Full Spherocylindrical Correct
         // FIXME: Check with client to see if my assumption of calcuation is correction
         // My assumption: You just add the full cylinder to the sphere
@@ -47,7 +47,7 @@ export const calculateTotalAfterAstigmatism = (sphere: number, cylinder: number)
 
         return fullSpherocylinderCorrection;
     } else {
-        throw new Error("Unable to cacluate total after Astigmatism");
+        console.error("ERROR: Unable to cacluate total after Astigmatism");
     }
 
 }
