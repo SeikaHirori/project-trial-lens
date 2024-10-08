@@ -1,15 +1,58 @@
 
 
+const AnswerKey = (props: {
+    correctAnswer: number
+}) => {
+    const {correctAnswer} = props;
+    
+    return (
+        <>
+            <>Correct Answer: {correctAnswer}</>
+        
+        </>
+    )
+}
+
 const Results = (props: {
-    userSubmitted: boolean
+    userSubmitted: boolean,
+    userAnswer: number,
+    correctAnswer: number,
 }) => {
 
-    const {userSubmitted} = props
+    // const {userSubmitted, userAnswer, correctAnswer} = props // Reactivate after debugging
+    
+    // Debugging only
+    const {userSubmitted, userAnswer} = props
+    const correctAnswer = 2.00;
+
 
     if (userSubmitted) {
-        return (<div>
-            <p>SUBMITTED!</p>
-        </div>)
+        if (userAnswer === correctAnswer) {
+            return (
+                <>
+                    <AnswerKey correctAnswer={correctAnswer}/>
+                    <p>EXACT answer!</p>
+                </>
+            )
+        }
+        
+        const margin: number = correctAnswer - userAnswer;
+        if (margin >= -0.25 && margin <= +0.25) {
+            return (
+                <>
+                    <AnswerKey correctAnswer={correctAnswer}/>
+                    <p>You're within margin of the exact answer!</p>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <AnswerKey correctAnswer={correctAnswer}/>
+                    <p>You're not within the margin.</p>
+                </>
+            )
+        }
+
     } else {
         return (<div>
             <p>pending...</p>

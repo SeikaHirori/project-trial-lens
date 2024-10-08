@@ -45,8 +45,7 @@ const AnswerPrompt = (props: {
 
             <div>
                 <Results 
-                    userSubmitted={userSubmitted}
-                />
+                        userSubmitted={userSubmitted} userAnswer={userAnswer} correctAnswer={2.00}                />
             </div>
 
         </form>
