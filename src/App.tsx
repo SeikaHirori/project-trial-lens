@@ -9,6 +9,7 @@ function App() {
   const [patient, setPatient] = useState<Patient>(new Patient(200,-150,180,24))
   const [problems, setProblems] = useState<Problems>(new Problems(5));
   const [userAnswer, setUserAnswer] = useState<number>(0)
+  const [submittedAnswer, setSubmittedAnswer] = useState<number>(0);
   const [isTrialLenNotsNeeded, setIsTrialLenNotsNeeded] = useState<boolean>(false)
   const [userSubmitted, setUserSubmitted] = useState<boolean>(false)
   
@@ -68,6 +69,7 @@ function App() {
       : "This is the first correction!"
     console.log(message);
     setUserSubmitted(switcherro)
+    setSubmittedAnswer(userAnswer)
   }
 
   return (
@@ -91,6 +93,7 @@ function App() {
         handleCheckboxNotNeeded={handleCheckboxNotNeeded}   
         handleUserSubmitted={handleUserSubmitted}   
         userSubmitted={userSubmitted}
+        submittedAnswer={submittedAnswer}
       />
     </>
   )
