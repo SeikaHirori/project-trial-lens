@@ -15,8 +15,8 @@ const AnswerKey = (props: {
 
 const Results = (props: {
     userSubmitted: boolean,
-    userAnswer: number,
-    correctAnswer: number,
+    userAnswer: number | null,
+    correctAnswer: number | null,
 }) => {
 
     // const {userSubmitted, userAnswer, correctAnswer} = props // Reactivate after debugging
@@ -30,7 +30,7 @@ const Results = (props: {
         console.log()
         console.log(userAnswer)
         console.log(correctAnswer)
-        if (userAnswer === correctAnswer) {
+        if (userAnswer == correctAnswer) {
             return (
                 <>
                     <AnswerKey correctAnswer={correctAnswer}/>
