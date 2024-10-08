@@ -23,10 +23,13 @@ const Results = (props: {
     
     // Debugging only
     const {userSubmitted, userAnswer} = props
-    const correctAnswer = 2.00;
+    const correctAnswer = 0.50;
 
 
     if (userSubmitted) {
+        console.log()
+        console.log(userAnswer)
+        console.log(correctAnswer)
         if (userAnswer === correctAnswer) {
             return (
                 <>
