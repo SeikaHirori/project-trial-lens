@@ -1,4 +1,4 @@
-import Corrections from "./Corrections";
+import Results from "./Results";
 import UserValue from "./UserValue";
 
 
@@ -10,8 +10,9 @@ const AnswerPrompt = (props: {
     handleCheckboxNotNeeded: () => void,
     handleUserSubmitted: () => void,
     userSubmitted: boolean,
+    submittedAnswer: number,
 }) => {
-    const {checkAnswer, userAnswer, handleAnswerChange, isTrialLensNotNeeded, handleCheckboxNotNeeded, handleUserSubmitted, userSubmitted} = props;
+    const {checkAnswer, userAnswer, handleAnswerChange, isTrialLensNotNeeded, handleCheckboxNotNeeded, handleUserSubmitted, userSubmitted, submittedAnswer} = props;
 
     return (
         <div>
@@ -44,9 +45,8 @@ const AnswerPrompt = (props: {
             </div>
 
             <div>
-                <Corrections 
-                    userSubmitted={userSubmitted}
-                />
+                <Results 
+                        userSubmitted={userSubmitted} userAnswer={submittedAnswer} correctAnswer={2.00}                />
             </div>
 
         </form>
