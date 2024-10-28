@@ -15,11 +15,17 @@
  * @returns RAW total after factoring in astigmatism
  */
 export const calculateTotalAfterAstigmatism = (sphere: number, cylinder: number): number => {
+    
+    // FIXME: Change this later so conditions just uses negative values
+    // instead of having to to do absolute value.
+    // Currently too tired to reverse conditions.
+    const absCylinder = Math.abs(cylinder);
+    const cyl = absCylinder;    // Use this to handle condition for now.
 
-    if (cylinder < 50) {
+    if (cyl < 50) {
         // Use sphere Only; ignore cylinder
         return sphere;
-    } else if (cylinder >= 50 && cylinder <= 100) {
+    } else if (cyl >= 50 && cyl <= 100) {
         // Spherical Equivalent
 
         /**
@@ -38,7 +44,7 @@ export const calculateTotalAfterAstigmatism = (sphere: number, cylinder: number)
 
         return sphericalEquivalent;
 
-    } else if (cylinder > 100) {
+    } else if (cyl > 100) {
         // Full Spherocylindrical Correct
         // FIXME: Check with client to see if my assumption of calcuation is correction
         // My assumption: You just add the full cylinder to the sphere
